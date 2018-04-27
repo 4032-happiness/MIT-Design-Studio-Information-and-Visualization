@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link href="scatter.css" rel="stylesheet"/>
+<body>
+    <div id = "scatter-container">
+        <div id ="scatter-title">Hapiness Scatter</div>
+        <div id ="input-form">
+            <div id = "button-row">
+                <input id = "gdp-button" type="button" value="Log GDP per capita">
+                <input id = "life-expectancy-button" type="button" value="Healthy life expectancy at birth">
+                <input id = "social-support-button" type="button" value="Social support">
+                <input id = "generosity-button" type="button" value="Generosity">
+            </div>
+            <input id = "year-slider" type="range" min="2009" max="2017" step="1">
+        </div>
+        <div id ="scatter-plot"></div>
+    </div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="scatter.js"></script>    
+</body>
+</html>
