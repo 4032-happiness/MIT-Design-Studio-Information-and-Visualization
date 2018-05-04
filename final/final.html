@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<link href="final.css" rel="stylesheet"/>
+<link href = "scatter.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<div id ="header" class = "container">
+    <div class ="row"> 
+            <div class ="col text-center">
+                <h1 id ="form-title" > Rank Your Happiness</h1>
+            </div>
+        </div>
+</div>
+<div id ="form">
+    <div id ="form-body" class = "container">
+        
+        <div class = "row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Happiness: </div>
+            </div>
+            <div class ="col">
+                <input type="text" id = "happiness_ladder"  placeholder=" Happiness" class = "form-input">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Country:</div>
+            </div>
+            <div class = "col">
+                <select name="country" id = "country" class = "form-input">
+                    <option value="United States">United States </option>
+                </select>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Enjoyment: </div>
+            </div>
+            <div class = "col">
+                <input type="text" id = "enjoyment"  placeholder="Enjoyment" class = "form-input">
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Smile:</div>
+            </div>
+            <div class = "col">
+                <input type="text" id = "smile"  placeholder="Smile" class = "form-input">
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col offset-md-4">
+                <div class ="input-label"> Worry: </div>
+            </div>
+            <div class = "col">
+                <input type="text" id = "worry"  placeholder="Worry" class = "form-input">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Social Support:</div>
+            </div>
+            <div class = "col">
+                <input type="text" id = "social_support"  placeholder="Social Support" class = "form-input">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Generosity:
+            </div>
+            </div>
+            <div class = "col"> 
+                <input type="text" id = "generosity"  placeholder="Generosity" class = "form-input">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col offset-md-4">
+                <div class ="input-label">Income:</div>
+            </div>
+            <div class = "col">
+                <input type="text" id = "income" placeholder="Annual Income" class = "form-input">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col offset-md-4">
+                <div class ="input-label"> Life Expectancy:</div>
+            </div>
+            <div class = "col">
+                <input type = "text" id ="life" placeholder="Life Expectancy"   class = "form-input">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class = "col offset-md-6">
+                <button type ="button" id ="submit"> submit</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-------------Scatter Plot------------------------>
+<div id = "scatter-container">
+        <div id ="scatter-title">Hapiness Scatter</div>
+        <div id ="input-form">
+            <div id = "button-row">
+                <input id = "gdp-button" type="button" value="Log GDP per capita">
+                <input id = "life-expectancy-button" type="button" value="Healthy life expectancy at birth">
+                <input id = "social-support-button" type="button" value="Social support">
+                <input id = "generosity-button" type="button" value="Generosity">
+            </div>
+            <input id = "year-slider" type="range" min="2009" max="2017" step="1">
+        </div>
+        <div id ="scatter-plot"></div>
+    </div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="scatter.js"></script> 
+<script src="final.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

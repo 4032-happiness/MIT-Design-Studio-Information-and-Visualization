@@ -1,0 +1,46 @@
+body {
+  font: 11px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #ffffff;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+#scatter-container{
+    margin-top:50px;
+    text-align: center;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows:20% 20% 60%;
+}
+#scatter-title{
+    grid-column-start:1;
+    grid-row-start: 1;
+    
+}
+#input-form{
+    grid-row-start:2;
+}
+#scatter-plot{
+    grid-column-start: 1;
+    grid-row-start:3;
+}
+.input{
+    z-index: 100000;
+}
+
+
+

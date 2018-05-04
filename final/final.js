@@ -7,19 +7,19 @@ var social_support;
 var generosity;
 var income;
 var life_expectancy;
+
+
+
 window.onload = function () { 
 
        setCountryDropDown();
        document.getElementById("submit").addEventListener('click', function(event){
-         createEvent(event);
+         if (validate_form()){
+            createEvent(event);
+         }
        });
+    
  }
-
-
-    // add on change for data handler
-   
-
-
 
 function createEvent(e){
     happiness = document.getElementById("happiness_ladder").value;
@@ -40,13 +40,13 @@ function createEvent(e){
     localStorage.setItem("income",income);
     life_expectancy = document.getElementById("life").value;
     localStorage.setItem("life_expectancy",life_expectancy);
+    window.location.href='final.html';
   }
 
-//Add all countries in form to country selection dropdown
 function setCountryDropDown(){
     
     var dropdown = document.getElementById("country");
-    d3.csv("Scatter/WHR.csv", function(data) {
+    d3.csv("WHR.csv", function(data) {
     var countries = [];
     for (var i = 0; i < data.length; i++) {
         if (countries.includes(data[i].country)){
@@ -62,10 +62,9 @@ function setCountryDropDown(){
         
         
     }
-    });   
+    });
+    
 }
-
 function validate_form(){
     return true;
 }
-
