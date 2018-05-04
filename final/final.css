@@ -26,4 +26,9 @@
 }*/
 #header{
     text-align: center;
+    display:flex;
+    justify-content: center;
+}
+.form-space{
+    margin-top: 2px;
 }
