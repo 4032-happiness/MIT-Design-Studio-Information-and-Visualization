@@ -197,8 +197,9 @@ function updateData(){
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     if (["Log GDP per capita","Healthy life expectancy at birth", "Social support"].includes(comparisonColumn) ){
-        inputComaparison = data.forEach(function (d){
+       data.forEach(function (d){
         if (d.country ==inputCountry){
+            inputComaparison = d[comparisonColumn];
             return d[comparisonColumn];
             
         }
@@ -263,13 +264,12 @@ function updateData(){
             .duration(500)
             .style("opacity", 0);
     });
-    
+    console.log(comparisonColumn, inputComaparison);
     //add users point
     svg.append("circle")
         .attr("class","dot input")
         .attr("r",7)
         .attr("cx",xScale(inputHappiness))
-        .attr("cy",yScale(inputComaparison))
         .attr("cy",yScale(inputComaparison))
         .style("fill", "#EB7F00")
         .on("mouseover", function(d) {
