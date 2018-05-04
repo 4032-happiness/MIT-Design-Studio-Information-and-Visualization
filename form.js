@@ -1,6 +1,6 @@
  window.onload = function () { 
 
-       
+       setCountryDropDown();
        document.getElementById("submit").addEventListener('click', function(event){
          createEvent(event);
        });
@@ -34,5 +34,26 @@ function createEvent(e){
     window.location.href='Scatter/scatter.html';
   }
 
-
+function setCountryDropDown(){
+    
+    var dropdown = document.getElementById("country");
+    d3.csv("Scatter/WHR.csv", function(data) {
+    var countries = [];
+    for (var i = 0; i < data.length; i++) {
+        if (countries.includes(data[i].country)){
+            countries.push(data[i].country);
+        }
+        else{
+            countries.push(data[i].country);
+            var opt = document.createElement('option');
+            opt.value = countries[i];
+            opt.innerHTML = countries[i];
+            dropdown.appendChild(opt);
+        }
+        
+        
+    }
+    });
+    
+}
 

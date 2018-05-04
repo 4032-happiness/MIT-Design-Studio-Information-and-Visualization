@@ -8,8 +8,9 @@ var xValue = function(d) { return d["Life Ladder"];}, // data -> value
     xScale = d3.scale.linear().range([0, width/2]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-var inputHappiness=5;
+var inputHappiness=parseInt(localStorage.getItem("happiness"));
 var inputComaparison = 7;
+var inputCountry = localStorage.getItem("country");
 var year = 2015;
 var color ="#ACF0F2";
 var comparisonColumn = "Log GDP per capita";
@@ -195,8 +196,26 @@ function updateData(){
     //rescale domain and range    
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+    if (["Log GDP per capita","Healthy life expectancy at birth", "Social support"].includes(comparisonColumn) ){
+        inputComaparison = data.forEach(function (d){
+        if (d.country ==inputCountry){
+            return d[comparisonColumn];
+            
+        }
+            return 0;
+        })
+      }
+    if (comparisonColumn == "Generosity"){
+            inputComaparison = localStorage.getItem("generosity");
+    }
     
-    
+        
+    data.forEach(function (d){
+        if (d.country ==inputCountry){
+            console.log(d[comparisonColumn]);
+            
+        }
+    })
          
   svg.append("g")
       .attr("class", "x axis")
