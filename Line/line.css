@@ -1,4 +1,8 @@
 #line-container {
+  --highlight-color: blue;
+  --yours-color: red;
+  --light-gray: #888;
+  --dark-gray: #333;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -20,25 +24,69 @@
 
 #line-switches .switch {
   margin: 0 10px;
+  color: var(--light-gray);
   cursor: pointer;
 }
 
 #line-switches .switch:hover {
-  color: blue;
+  color: var(--dark-gray);
 }
 
 #line-switches .switch.selected {
-  color: blue;
+  color: var(--dark-gray);
   text-decoration: underline;
+}
+
+#line-body {
+  display: flex;
 }
 
 #line-plot {
   width: 600px;
   height: 400px;
-  border: #DDD 1px solid;
 }
 
 #line-plot .highlighted {
-  stroke: blue;
-  /* opacity: 0.8; */
+  stroke: var(--highlight-color);
+  opacity: 0.8;
+}
+
+#line-table {
+  height: 400px;
+  padding-right: 16px;
+  overflow-y: scroll;
+}
+
+#line-table table {
+  border-collapse: collapse;
+}
+
+#line-table table tr {
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+#line-table table tr:hover {
+  background-color: #efefef;
+}
+
+#line-table table tr td {
+  padding: 0 5px;
+}
+
+#line-table table tr td:first-child {
+  text-align: right;
+}
+
+#line-table table tr.highlighted td {
+  color: var(--highlight-color);
+}
+
+#line-table table tr.yours td {
+  color: var(--yours-color);
+  cursor: default;
+}
+
+#line-table table tr.yours:hover {
+  background-color: transparent;
 }

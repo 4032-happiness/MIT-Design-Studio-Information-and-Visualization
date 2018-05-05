@@ -16,6 +16,8 @@ let lineQueue = d3.queue()
 let lineData = {}
 let lineDataAverage = []
 
+let countryColor = '#AAA'
+let yourCountryColor = 'red'
 let yourCountry = 'United States'
 
 function parseLineData(d){
@@ -50,6 +52,7 @@ function lineDataLoaded(err, data){
   lineDataAverage.sort((a, b) => { return a.average - b.average })
 
   drawLinePlot(Object.keys(lineData)) // Draw all countries
+  drawLinePlotTable(lineDataAverage)
 }
 
 function highlightLinePlotHighest(number) {
@@ -69,17 +72,17 @@ function highlightLinePlotLowest(number) {
 }
 
 function highlightLinePlotClosest(number) {
-  let closest
   let allCountries = lineDataAverage.map((d) => { return d.country })
   let yourIndex = allCountries.indexOf(yourCountry)
-
-  if (yourIndex < number / 2) { // Your country is in the highest (number/2) countries
-    closest = allCountries.slice(lineDataAverage.length - number - 1, lineDataAverage.length)
-  } else if (yourIndex > lineDataAverage.length - number / 2) { // Your country is in the lowest (number/2) countries
-    closest = allCountries.slice(0, number + 1)
-  } else {
-    closest = allCountries.slice(yourIndex - number / 2, yourIndex + 1 + number / 2)
+  if (yourIndex < number / 2) { // Your country is in the lowest (number/2) countries
+    highlightLinePlotLowest(number + 1)
+    return
   }
+  if (yourIndex >= lineDataAverage.length - number / 2) { // Your country is in the highest (number/2) countries
+    highlightLinePlotHighest(number + 1)
+    return
+  }
+  let closest = allCountries.slice(yourIndex - number / 2, yourIndex + 1 + number / 2)
   closest.splice(closest.indexOf(yourCountry), 1)
   highlightLinePlot(closest)
 }
@@ -109,7 +112,7 @@ function drawLinePlot(countries) {
 
   // Draw the lines
   for (let country of countries) {
-    let color = country === yourCountry ? 'red' : '#AAA'
+    let color = country === yourCountry ? yourCountryColor : countryColor
     let width = country === yourCountry ? 2 : 1
     let opacity = country === yourCountry ? 1 : 0.5
     drawlinePlotLine(lineData[country], line, color, 1, opacity)
@@ -140,19 +143,41 @@ function drawlinePlotLine(data, line, color, width, opacity) {
     .attr('stroke-width', width)
     .attr('opacity', opacity)
     .attr('id', data[0].country.replace(/\s+/g, '-'))
-    .on('mouseover', function(d) {
+    // .on('mouseover', function(d) {
       // console.log(d[0].country)
       // d3.select(this).attr('stroke', 'blue').raise()
-      })
-    .on('mouseout', function(d) {
+      // })
+    // .on('mouseout', function(d) {
       // d3.select(this).attr('stroke', color).lower()
-      })
+      // })
 }
 
 function highlightLinePlot(countries) {
   $('.line').removeClass('highlighted')
+  $('#line-table table tr').removeClass('highlighted')
   for (let country of countries) {
     $(`#${country.replace(/\s+/g, '-')}`).addClass('highlighted')
+    $(`#tr-${country.replace(/\s+/g, '-')}`).addClass('highlighted')
+  }
+}
+
+function drawLinePlotTable(data) {
+  for (let i = 1; i <= data.length; i++) {
+    let d = data[data.length - i]
+    $row = $('<tr>')
+    $row.append(`<td>${i}.</td>`)
+    $row.append(`<td>${d.country}</td>`)
+    $row.append(`<td>${d.average.toPrecision(3)}</td>`)
+    $row.attr('id', `tr-${d.country.replace(/\s+/g, '-')}`)
+    if (d.country === yourCountry) {
+      $row.addClass('yours')
+    } else {
+      $row.on('click', function(){
+        highlightLinePlot([d.country])
+        $('#line-switches .switch').removeClass('selected')
+      })
+    }
+    $('#line-table table').append($row)
   }
 }
 
