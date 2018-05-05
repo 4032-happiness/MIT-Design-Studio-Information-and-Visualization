@@ -1,6 +1,7 @@
 let linePlotMargin = { top: 10, right: 20, bottom: 30, left: 30 }
 let linePlotWidth = d3.select('#line-plot').node().clientWidth - (linePlotMargin.right + linePlotMargin.left)
 let linePlotHeight = d3.select('#line-plot').node().clientHeight - (linePlotMargin.top + linePlotMargin.bottom)
+let linePlotTableHeight = d3.select('#line-table').node().clientHeight
 
 let linePlot = d3.select("#line-plot")
   .append('svg')
@@ -153,12 +154,24 @@ function drawlinePlotLine(data, line, color, width, opacity) {
 }
 
 function highlightLinePlot(countries) {
+  let minY = Infinity
+  let maxY = -Infinity
   $('.line').removeClass('highlighted')
   $('#line-table table tr').removeClass('highlighted')
+
   for (let country of countries) {
     $(`#${country.replace(/\s+/g, '-')}`).addClass('highlighted')
     $(`#tr-${country.replace(/\s+/g, '-')}`).addClass('highlighted')
+    let position = $(`#tr-${country.replace(/\s+/g, '-')}`).position()
+    let height = $(`#tr-${country.replace(/\s+/g, '-')}`).height()
+    minY = Math.min(minY, position.top)
+    maxY = Math.max(maxY, position.top + height)
   }
+
+  let offset = ((minY + maxY) / 2) - (linePlotTableHeight / 2)
+  $('#line-table').animate({
+    scrollTop: offset
+  }, 400)
 }
 
 function drawLinePlotTable(data) {

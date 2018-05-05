@@ -1,8 +1,18 @@
 #line-container {
   --highlight-color: blue;
   --yours-color: red;
+  --ultra-light-gray: #efefef;
   --light-gray: #888;
   --dark-gray: #333;
+
+  --plot-height: 75vh;
+  --plot-width: 60vw;
+  --table-title-height: 30px;
+  --table-title-size: 17px;
+  --table-margin: 10px;
+  --table-pad-top: 5px;
+  --table-pad-right: 16px;
+
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -13,7 +23,7 @@
 }
 
 #line-title {
-  font-size: 20px;
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
@@ -42,8 +52,8 @@
 }
 
 #line-plot {
-  width: 600px;
-  height: 400px;
+  width: var(--plot-width);
+  height: var(--plot-height);
 }
 
 #line-plot .highlighted {
@@ -51,9 +61,18 @@
   opacity: 0.8;
 }
 
+#line-table-title {
+  height: var(--table-title-height);
+  font-size: var(--table-title-size);
+  text-align: center;
+  color: var(--dark-gray);
+}
+
 #line-table {
-  height: 400px;
-  padding-right: 16px;
+  height: calc(var(--plot-height) - var(--table-title-height) - var(--table-margin) - var(--table-pad-top));
+  padding-right: var(--table-pad-right);
+  padding-top: var(--table-pad-top);
+  border-top: 1px solid #DDD;
   overflow-y: scroll;
 }
 
@@ -67,7 +86,7 @@
 }
 
 #line-table table tr:hover {
-  background-color: #efefef;
+  background-color: var(--ultra-light-gray);
 }
 
 #line-table table tr td {
