@@ -144,7 +144,7 @@ function drawlinePlotLine(data, line, color, width, opacity) {
     .attr('stroke', color)
     .attr('stroke-width', width)
     .attr('opacity', opacity)
-    .attr('id', data[0].country.replace(/\s+/g, '-'))
+    .attr('id', encodeCountryName(data[0].country))
     // .on('mouseover', function(d) {
       // console.log(d[0].country)
       // d3.select(this).attr('stroke', 'blue').raise()
@@ -161,10 +161,11 @@ function highlightLinePlot(countries) {
   $('#line-table table tr').removeClass('highlighted')
 
   for (let country of countries) {
-    $(`#${country.replace(/\s+/g, '-')}`).addClass('highlighted')
-    $(`#tr-${country.replace(/\s+/g, '-')}`).addClass('highlighted')
-    let position = $(`#tr-${country.replace(/\s+/g, '-')}`).position()
-    let height = $(`#tr-${country.replace(/\s+/g, '-')}`).height()
+    let countryID = encodeCountryName(country)
+    $(`#${countryID}`).addClass('highlighted')
+    $(`#tr-${countryID}`).addClass('highlighted')
+    let position = $(`#tr-${countryID}`).position()
+    let height = $(`#tr-${countryID}`).height()
     minY = Math.min(minY, position.top)
     maxY = Math.max(maxY, position.top + height)
   }
@@ -182,7 +183,7 @@ function drawLinePlotTable(data) {
     $row.append(`<td>${i}.</td>`)
     $row.append(`<td>${d.country}</td>`)
     $row.append(`<td>${d.average.toPrecision(3)}</td>`)
-    $row.attr('id', `tr-${d.country.replace(/\s+/g, '-')}`)
+    $row.attr('id', `tr-${encodeCountryName(d.country)}`)
     if (d.country === yourCountry) {
       $row.addClass('yours')
     } else {
@@ -194,10 +195,15 @@ function drawLinePlotTable(data) {
     $('#line-table table').append($row)
   }
 
-  let position = $(`#tr-${yourCountry.replace(/\s+/g, '-')}`).position()
-  let height = $(`#tr-${yourCountry.replace(/\s+/g, '-')}`).height()
+  let yourCountryID = encodeCountryName(yourCountry)
+  let position = $(`#tr-${yourCountryID}`).position()
+  let height = $(`#tr-${yourCountryID}`).height()
   let offset = (position.top + (height / 2)) - (linePlotTableHeight / 2)
   $('#line-table').scrollTop(offset)
+}
+
+function encodeCountryName(name) {
+  return name.replace(/\s+/g, '-').replace(/\(|\)/g, '').replace(/\./g, '')
 }
 
 $('#line-switch-highest').on('click', function(){
