@@ -3,13 +3,14 @@
   --yours-color: red;
   --ultra-light-gray: #efefef;
   --light-gray: #888;
+  --medium-gray: #666;
   --dark-gray: #333;
 
   --plot-height: 75vh;
   --plot-width: 60vw;
   --table-title-height: 30px;
   --table-title-size: 17px;
-  --table-margin: 10px;
+  --table-margin: 18px;
   --table-pad-top: 5px;
   --table-pad-right: 16px;
 
@@ -59,6 +60,19 @@
 #line-plot .highlighted {
   stroke: var(--highlight-color);
   opacity: 0.8;
+}
+
+#line-plot path.domain {
+  stroke: none;
+}
+
+#line-plot g.tick line {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#line-plot g.tick text {
+  fill: var(--medium-gray);
 }
 
 #line-table-title {

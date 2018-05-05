@@ -103,7 +103,7 @@ function drawLinePlot(countries) {
     yMin = Math.min(Math.min.apply(Math, lineData[country].map((d) => { return d.happiness })), yMin)
     yMax = Math.max(Math.max.apply(Math, lineData[country].map((d) => { return d.happiness })), yMax)
   }
-  let xScale = d3.scaleLinear().range([0, linePlotWidth]).domain([xMin - 0.5, xMax + 0.5])
+  let xScale = d3.scaleLinear().range([0, linePlotWidth]).domain([xMin, xMax])
   let yScale = d3.scaleLinear().range([linePlotHeight, 0]).domain([yMin - 0.5, yMax + 0.5])
 
   // Define the line
@@ -125,6 +125,7 @@ function drawLinePlot(countries) {
     .call(
       d3.axisBottom(xScale)
         .tickFormat(d3.format('d'))
+        .tickSize(-linePlotHeight)
         .tickSizeOuter(0))
 
   // Add the Y Axis
@@ -192,6 +193,11 @@ function drawLinePlotTable(data) {
     }
     $('#line-table table').append($row)
   }
+
+  let position = $(`#tr-${yourCountry.replace(/\s+/g, '-')}`).position()
+  let height = $(`#tr-${yourCountry.replace(/\s+/g, '-')}`).height()
+  let offset = (position.top + (height / 2)) - (linePlotTableHeight / 2)
+  $('#line-table').scrollTop(offset)
 }
 
 $('#line-switch-highest').on('click', function(){
