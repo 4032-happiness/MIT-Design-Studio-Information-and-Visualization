@@ -20,6 +20,13 @@ window.onload = function () {
        });
     
  }
+var sheet = document.createElement('style'),  
+  $rangeInput = $('.range input'),
+  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+
+document.body.appendChild(sheet);
+
+
 
 function createEvent(e){
     happiness = document.getElementById("happiness_ladder").value;
@@ -65,6 +72,7 @@ function setCountryDropDown(){
     });
     
 }
+
 function validate_form(){
     return true;
 }

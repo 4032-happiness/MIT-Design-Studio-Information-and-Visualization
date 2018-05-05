@@ -1,7 +1,16 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 800 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin;
+var width;
+var height;
+console.log(document.documentElement.clientWidth);
+console.log(document.getElementById("scatter-plot").clientWidth);
 
+
+
+margin = {top: 20, right: 20, bottom: 30, left: 40};
+    //var plot_width = document.getElementById("#scatter-plot-row").width;
+    //console.log(plot_width);
+    width = document.documentElement.clientWidth +50;
+    height = 700 - margin.top - margin.bottom;
 // setup x, in this case the values in X axis are the calories
 // We need to define the range, scale and position
 var xValue = function(d) { return d["Life Ladder"];}, // data -> value
@@ -12,6 +21,10 @@ var inputHappiness=parseInt(localStorage.getItem("happiness"));
 var inputComaparison = 7;
 var inputCountry = localStorage.getItem("country");
 var year = 2015;
+year = parseInt(document.getElementById("year-slider").value);
+var yearString = year.toString();
+document.getElementById("year-value").innerHTML = yearString;
+
 var color ="#ACF0F2";
 var comparisonColumn = "Log GDP per capita";
 // setup y, in this case the values in X axis are the proteins
@@ -129,17 +142,14 @@ d3.csv("WHR.csv", function(error, data) {
                .duration(500)
                .style("opacity", 0);
       });
-  // draw legend
-  /*var legend = svg.selectAll(".legend")
-      .data(color.domain())
-    .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });*/
+
 
 
 });
 document.getElementById("year-slider").addEventListener("click",function(e){
     year = parseInt(document.getElementById("year-slider").value);
+    var yearString = year.toString();
+    document.getElementById("year-value").innerHTML = yearString;
     updateData();
 });
 document.getElementById("generosity-button").addEventListener("click",function(e){
@@ -188,7 +198,6 @@ function updateData(){
     data.forEach(function(d) {
         d["Life Ladder"] = +d["Life Ladder"];
         d[comparisonColumn] = +d[comparisonColumn];
-        //    console.log(d);
     });
         
      svg.selectAll(".dot").remove();
@@ -256,8 +265,8 @@ function updateData(){
             .style("opacity", .9);
         tooltip.html(d["country"] + "<br/> (" + xValue(d) 
                      + ", " + yValue(d) + ")")
-            .style("left", (d3.event.pageX + 5) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
+            .style("left", (event.clientX) + "px")
+            .style("top", (event.clientY) + "px");
     })
         .on("mouseout", function(d) {
         tooltip.transition()
@@ -277,8 +286,8 @@ function updateData(){
             .duration(200)
             .style("opacity", .9);
         tooltip.html("You" + "<br/> (" +inputHappiness.toString()+ ", " + inputComaparison + ")")
-            .style("left", (d3.event.pageX + 5) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
+            .style("left", (event.clientX) + "px")
+            .style("top", (event.clientY) + "px");
     })
         .on("mouseout", function(d) {
         tooltip.transition()

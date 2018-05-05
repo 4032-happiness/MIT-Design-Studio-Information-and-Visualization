@@ -11,8 +11,17 @@
             <div class ="col text-center ">
                 <h1 id ="form-title" > Rank Your Happiness</h1>
             </div>
+        
+    </div>
+ </div>
+<div id ="project-description" class = "container">
+    <div class = "row">
+        <div class = "col offset-md-4">
+            <h4>Project description can go here........</h4>
         </div>
+    </div>
 </div>
+
 <div id ="form">
     <div id ="form-body" class = "container">
         
@@ -24,7 +33,7 @@
                 <input type="text" id = "happiness_ladder"  placeholder=" Happiness" class = "form-input">
             </div>
         </div>
-        <div class ="row">
+        <div class ="row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Country:</div>
             </div>
@@ -34,7 +43,7 @@
                 </select>
             </div>
         </div>
-        <div class = "row">
+        <div class = "row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Enjoyment: </div>
             </div>
@@ -42,7 +51,7 @@
                 <input type="text" id = "enjoyment"  placeholder="Enjoyment" class = "form-input">
             </div>
         </div>
-        <div class = "row">
+        <div class = "row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Smile:</div>
             </div>
@@ -50,7 +59,7 @@
                 <input type="text" id = "smile"  placeholder="Smile" class = "form-input">
             </div>
         </div>
-        <div class = "row">
+        <div class = "row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label"> Worry: </div>
             </div>
@@ -58,7 +67,7 @@
                 <input type="text" id = "worry"  placeholder="Worry" class = "form-input">
             </div>
         </div>
-        <div class ="row">
+        <div class ="row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Social Support:</div>
             </div>
@@ -66,7 +75,7 @@
                 <input type="text" id = "social_support"  placeholder="Social Support" class = "form-input">
             </div>
         </div>
-        <div class ="row">
+        <div class ="row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Generosity:
             </div>
@@ -75,7 +84,7 @@
                 <input type="text" id = "generosity"  placeholder="Generosity" class = "form-input">
             </div>
         </div>
-        <div class ="row">
+        <div class ="row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label">Income:</div>
             </div>
@@ -83,7 +92,7 @@
                 <input type="text" id = "income" placeholder="Annual Income" class = "form-input">
             </div>
         </div>
-        <div class ="row">
+        <div class ="row form-space">
             <div class = "col offset-md-4">
                 <div class ="input-label"> Life Expectancy:</div>
             </div>
@@ -91,7 +100,7 @@
                 <input type = "text" id ="life" placeholder="Life Expectancy"   class = "form-input">
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center form-space">
             <div class = "col offset-md-6">
                 <button type ="button" id ="submit"> submit</button>
             </div>
@@ -100,19 +109,48 @@
     
 </div>
 <!-------------Scatter Plot------------------------>
-<div id = "scatter-container">
-        <div id ="scatter-title">Hapiness Scatter</div>
-        <div id ="input-form">
-            <div id = "button-row">
-                <input id = "gdp-button" type="button" value="Log GDP per capita">
-                <input id = "life-expectancy-button" type="button" value="Healthy life expectancy at birth">
-                <input id = "social-support-button" type="button" value="Social support">
-                <input id = "generosity-button" type="button" value="Generosity">
+<div id = "scatter-container" class = "container">
+    <div id = "scatter-title-row" class = "row">
+        <h2 id ="scatter-title">Hapiness Scatter</h2>
+    </div>
+    <div id = "input-form-row" class = "row">
+        <div class = "col offset-md-2">
+            <div id ="input-form">
+                <div id = "button-row">
+                    <input id = "gdp-button" type="button" value="Log GDP per capita">
+                    <input id = "life-expectancy-button" type="button" value="Healthy life expectancy at birth">
+                    <input id = "social-support-button" type="button" value="Social support">
+                    <input id = "generosity-button" type="button" value="Generosity">
+                </div>
             </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col md-offset-3">
+            Year:
+        </div>
+    </div>
+    <div id = "year-slider-row" class = "row">
+
+        <div class = "col md-offset-3">
             <input id = "year-slider" type="range" min="2009" max="2017" step="1">
         </div>
-        <div id ="scatter-plot"></div>
+    </div> 
+    <div class = "row">
+        <div class = "col md-offset-3">
+            <div id = "year-value">
+                
+            </div>
+        </div>
     </div>
+
+</div>
+    <div id = "scatter-plot-row"  class = "row">
+        <div class = "col offset-md-2">
+            <div id ="scatter-plot" class = "w-100"></div>
+        </div>
+    </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="scatter.js"></script> 
 <script src="final.js"></script>
