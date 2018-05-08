@@ -1,0 +1,125 @@
+#line-container {
+  --highlight-color: blue;
+  --yours-color: red;
+  --ultra-light-gray: #efefef;
+  --light-gray: #888;
+  --medium-gray: #666;
+  --dark-gray: #333;
+
+  --plot-height: 75vh;
+  --plot-width: 60vw;
+  --table-title-height: 30px;
+  --table-title-size: 17px;
+  --table-margin: 18px;
+  --table-pad-top: 5px;
+  --table-pad-right: 16px;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#line-title {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#line-switches {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+#line-switches .switch {
+  margin: 0 10px;
+  color: var(--light-gray);
+  cursor: pointer;
+}
+
+#line-switches .switch:hover {
+  color: var(--dark-gray);
+}
+
+#line-switches .switch.selected {
+  color: var(--dark-gray);
+  text-decoration: underline;
+}
+
+#line-body {
+  display: flex;
+}
+
+#line-plot {
+  width: var(--plot-width);
+  height: var(--plot-height);
+}
+
+#line-plot .highlighted {
+  stroke: var(--highlight-color);
+  opacity: 0.8;
+}
+
+#line-plot path.domain {
+  stroke: none;
+}
+
+#line-plot g.tick line {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#line-plot g.tick text {
+  fill: var(--medium-gray);
+}
+
+#line-table-title {
+  height: var(--table-title-height);
+  font-size: var(--table-title-size);
+  text-align: center;
+  color: var(--dark-gray);
+}
+
+#line-table {
+  height: calc(var(--plot-height) - var(--table-title-height) - var(--table-margin) - var(--table-pad-top));
+  padding-right: var(--table-pad-right);
+  padding-top: var(--table-pad-top);
+  border-top: 1px solid #DDD;
+  overflow-y: scroll;
+}
+
+#line-table table {
+  border-collapse: collapse;
+}
+
+#line-table table tr {
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+#line-table table tr:hover {
+  background-color: var(--ultra-light-gray);
+}
+
+#line-table table tr td {
+  padding: 0 5px;
+}
+
+#line-table table tr td:first-child {
+  text-align: right;
+}
+
+#line-table table tr.highlighted td {
+  color: var(--highlight-color);
+}
+
+#line-table table tr.yours td {
+  color: var(--yours-color);
+  cursor: default;
+}
+
+#line-table table tr.yours:hover {
+  background-color: transparent;
+}
