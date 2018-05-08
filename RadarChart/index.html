@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="style.css">
+<head>
+  <style>
+    body {
+      padding: 20px;
+    }
+    .radar-chart .area {
+      fill-opacity: 0.7;
+    }
+    .radar-chart.focus .area {
+      fill-opacity: 0.3;
+    }
+    .radar-chart.focus .area.focused {
+      fill-opacity: 0.9;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+  <script type="text/javascript" src="radar.js"></script>
+
+
+  </head>
+  <body>
+    <h1>Radar Chart</h1>
+    <p>Type Your Country of Origin (Case Sensitive)</p>
+    <input type="text" id="input" placeholder="Enter Your Country...">
+    <button id="myBtn" onclick="doWhatIWant()">Enter</button>
+
+<!--
+    <textarea id="data" cols="60" rows="15">Country,Life Ladder,Healthy Life Expectancy/10,Social Support,Generosity,Positive Affect,Negative Affect
+Afghanistan,3.6,5.2,5.3,1.8,5.0,3.7
+Albania,4.6,6.9,6.4,2.6,6.7,3.3
+</textarea>
+-->
+      
+<!--
+<body onload='doWhatIWant()'>
+</body>
+-->
+<script type="text/javascript">
+    var input = document.getElementById("input");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("myBtn").click();
+        }
+    });
+    function doWhatIWant() {
+        var data2;
+        var country = document.getElementById("input").value
+
+        d3.csv("data.csv", function(error, data){
+            if (error) {
+                throw error;
+            }
+            var you = {"Country": "You", "Life Ladder":"1.8", "Healthy Life Expectancy/10":"5.2", "Social Support":"3.6", "Generosity":"3.7", "Positive Affect":"5.0", "Negative Affect":"5.3"};
+            data.unshift(you);
+            //console.log(data);
+            showRadar(data);
+        });
+
+        function showRadar(data2){
+            var data = [];
+            var chart = RadarChart.chart();
+            var w = 600,
+              h = 600,
+              headers = []
+            data2.forEach(function(item, i){
+                if (data2[i]["Country"] == "You" || data2[i]["Country"] == country) {
+            console.log(data2);
+              newSeries = {};
+              for(var j in item) {
+                let v = item[j];
+                console.log(j);
+                  console.log(v);
+                if(j=="Country"){
+                  newSeries.className = v;
+                  newSeries.axes = [];
+                }else{
+                  newSeries.axes.push({"axis":[j], "value": [v]});//parseFloat(v)});
+                }
+              }          
+              data.push(newSeries);
+              console.log(newSeries);   
+            
+                }
+            });
+            
+            RadarChart.defaultConfig.radius = 3;
+            RadarChart.defaultConfig.w = w;
+            RadarChart.defaultConfig.h = h;
+            RadarChart.draw("#chart-container", data);
+            function animate(elem,time) {
+                if( !elem) return;
+                var to = elem.offsetTop;
+                var from = window.scrollY;
+                var start = new Date().getTime(),
+                    timer = setInterval(function() {
+                        var step = Math.min(1,(new Date().getTime()-start)/time);
+                        window.scrollTo(0,(from+step*(to-from))+1);
+                        if( step == 1){ clearInterval(timer);};
+                    },25);
+                    window.scrollTo(0,(from+1));
+            }
+            var divVal = document.getElementById('chart-container');
+            animate(divVal,600);
+        }
+    }
+</script>
+
+
+<div id="chart-container"></div>
+<script type="text/javascript">
+    //RadarChart.defaultConfig.levelTick = true;
+  </script>
+
+</body>
+</html>
