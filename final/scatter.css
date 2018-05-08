@@ -64,9 +64,7 @@ input[type="range"]{
   outline: none;
 }
 
-input[type="range"]:first-of-type{
-  margin-top:30px;
-}
+
 
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance:none;

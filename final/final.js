@@ -1,12 +1,10 @@
 var hapiness;
 var country;
-var enjoyment;
-var smile;
-var worry;
+var positive_affect;
+var negative_affect;
 var social_support;
 var generosity;
-var income;
-var life_expectancy;
+
 
 
 
@@ -33,20 +31,15 @@ function createEvent(e){
     localStorage.setItem("happiness",happiness);
     country = document.getElementById("country").value;
     localStorage.setItem("country",country);
-    enjoyment = document.getElementById("enjoyment").value;
-    localStorage.setItem("enjoyment",enjoyment);
-    smile = document.getElementById("smile").value;
+    positive_affect = document.getElementById("smile").value;
     localStorage.setItem("smile",smile);
-    worry = document.getElementById("worry").value;
+    negative_affect = document.getElementById("worry").value;
     localStorage.setItem("worry",worry);
     social_support = document.getElementById("social_support").value;
     localStorage.setItem("social_support",social_support);
     generosity =document.getElementById("generosity").value;
     localStorage.setItem("generosity",generosity);
-    income = document.getElementById("income").value;
-    localStorage.setItem("income",income);
-    life_expectancy = document.getElementById("life").value;
-    localStorage.setItem("life_expectancy",life_expectancy);
+    console.log(generosity);
     window.location.href='final.html';
   }
 

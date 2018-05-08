@@ -1,29 +1,4 @@
-/*#form{
-    display: flex;
-    justify-content: center;
-    
-}*/
 
-/*#form-body{
-    text-align: left;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-}
-
-.form-input{
-    width:100%;
-    grid-column-start: 2;
-}
-.input-label{
-    grid-column-start: 1;
-}
-#submit{
-   
-    grid-column-start:1;
-    grid-column-end:2;
-    width:100%;
-}*/
 #header{
     text-align: center;
     display:flex;
@@ -31,4 +6,10 @@
 }
 .form-space{
     margin-top: 2px;
+}
+#form{
+    page-break-after:always;
+}
+#scatter-container{
+    page-break-before: always;
 }
