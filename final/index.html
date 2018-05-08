@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="final.css" rel="stylesheet"/>
+<link href = "scatter.css" rel="stylesheet"/>
+<link href="line.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<div id ="header" class = "container">
+    <div class ="row">
+            <div class ="col text-center ">
+                <h1 id ="form-title" > Rank Your Happiness</h1>
+            </div>
+
+    </div>
+ </div>
+<div id ="project-description" class = "container">
+    <div class = "row">
+        <div class = "col offset-md-4">
+            <h4>Project description can go here........</h4>
+        </div>
+    </div>
+</div>
+
+<div id ="form">
+  <div id ="form-body" class = "container">
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Happiness</td>
+        <td>description goes here.</td>
+        <td><input type="radio" name="happiness_ladder" value="0"></td>
+        <td><input type="radio" name="happiness_ladder" value="1"></td>
+        <td><input type="radio" name="happiness_ladder" value="2"></td>
+        <td><input type="radio" name="happiness_ladder" value="3"></td>
+        <td><input type="radio" name="happiness_ladder" value="4"></td>
+        <td><input type="radio" name="happiness_ladder" value="5"></td>
+        <td><input type="radio" name="happiness_ladder" value="6"></td>
+        <td><input type="radio" name="happiness_ladder" value="7"></td>
+        <td><input type="radio" name="happiness_ladder" value="8"></td>
+        <td><input type="radio" name="happiness_ladder" value="9"></td>
+        <td><input type="radio" name="happiness_ladder" value="10"></td>
+      </tr>
+      <tr>
+        <td>Generosity</td>
+        <td>description goes here.</td>
+        <td><input type="radio" name="generosity" value="0"></td>
+        <td><input type="radio" name="generosity" value="1"></td>
+        <td><input type="radio" name="generosity" value="2"></td>
+        <td><input type="radio" name="generosity" value="3"></td>
+        <td><input type="radio" name="generosity" value="4"></td>
+        <td><input type="radio" name="generosity" value="5"></td>
+        <td><input type="radio" name="generosity" value="6"></td>
+        <td><input type="radio" name="generosity" value="7"></td>
+        <td><input type="radio" name="generosity" value="8"></td>
+        <td><input type="radio" name="generosity" value="9"></td>
+        <td><input type="radio" name="generosity" value="10"></td>
+      </tr>
+      <tr>
+        <td>Positive Affect</td>
+        <td>description goes here.</td>
+        <td><input type="radio" name="smile" value="0"></td>
+        <td><input type="radio" name="smile" value="1"></td>
+        <td><input type="radio" name="smile" value="2"></td>
+        <td><input type="radio" name="smile" value="3"></td>
+        <td><input type="radio" name="smile" value="4"></td>
+        <td><input type="radio" name="smile" value="5"></td>
+        <td><input type="radio" name="smile" value="6"></td>
+        <td><input type="radio" name="smile" value="7"></td>
+        <td><input type="radio" name="smile" value="8"></td>
+        <td><input type="radio" name="smile" value="9"></td>
+        <td><input type="radio" name="smile" value="10"></td>
+      </tr>
+      <tr>
+        <td>Negative Affect</td>
+        <td>description goes here.</td>
+        <td><input type="radio" name="worry" value="0"></td>
+        <td><input type="radio" name="worry" value="1"></td>
+        <td><input type="radio" name="worry" value="2"></td>
+        <td><input type="radio" name="worry" value="3"></td>
+        <td><input type="radio" name="worry" value="4"></td>
+        <td><input type="radio" name="worry" value="5"></td>
+        <td><input type="radio" name="worry" value="6"></td>
+        <td><input type="radio" name="worry" value="7"></td>
+        <td><input type="radio" name="worry" value="8"></td>
+        <td><input type="radio" name="worry" value="9"></td>
+        <td><input type="radio" name="worry" value="10"></td>
+      </tr>
+      <tr>
+        <td>Social Support</td>
+        <td>description goes here.</td>
+        <td><input type="radio" name="social_support" value="0"></td>
+        <td><input type="radio" name="social_support" value="1"></td>
+        <td><input type="radio" name="social_support" value="2"></td>
+        <td><input type="radio" name="social_support" value="3"></td>
+        <td><input type="radio" name="social_support" value="4"></td>
+        <td><input type="radio" name="social_support" value="5"></td>
+        <td><input type="radio" name="social_support" value="6"></td>
+        <td><input type="radio" name="social_support" value="7"></td>
+        <td><input type="radio" name="social_support" value="8"></td>
+        <td><input type="radio" name="social_support" value="9"></td>
+        <td><input type="radio" name="social_support" value="10"></td>
+      </tr>
+    </table>
+
+    <div class ="row form-space">
+      <div class = "col offset-md-4">
+        <div class ="input-label">Country:</div>
+      </div>
+      <div class = "col">
+        <select name="country" id="country" class="form-input">
+          <option value="United States">United States</option>
+        </select>
+      </div>
+    </div>
+    <div class="row justify-content-center form-space">
+      <div class = "col offset-md-6">
+        <button type ="button" id ="submit"> submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="final.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

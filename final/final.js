@@ -8,7 +8,7 @@ var generosity;
 
 
 
-window.onload = function () { 
+window.onload = function () {
 
        setCountryDropDown();
        document.getElementById("submit").addEventListener('click', function(event){
@@ -16,9 +16,9 @@ window.onload = function () {
             createEvent(event);
          }
        });
-    
+
  }
-var sheet = document.createElement('style'),  
+var sheet = document.createElement('style'),
   $rangeInput = $('.range input'),
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
 
@@ -44,7 +44,6 @@ function createEvent(e){
   }
 
 function setCountryDropDown(){
-    
     var dropdown = document.getElementById("country");
     d3.csv("WHR.csv", function(data) {
     var countries = [];
@@ -59,11 +58,11 @@ function setCountryDropDown(){
             opt.innerHTML = countries[i];
             dropdown.appendChild(opt);
         }
-        
-        
+
+
     }
     });
-    
+
 }
 
 function validate_form(){
