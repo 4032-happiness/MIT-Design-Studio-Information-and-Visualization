@@ -205,7 +205,7 @@ function updateData(){
     //rescale domain and range    
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
-    if (["Log GDP per capita","Healthy life expectancy at birth", "Social support"].includes(comparisonColumn) ){
+    if (["Log GDP per capita","Healthy life expectancy at birth"].includes(comparisonColumn) ){
        data.forEach(function (d){
         if (d.country ==inputCountry){
             inputComaparison = d[comparisonColumn];
@@ -215,7 +215,7 @@ function updateData(){
             return 0;
         })
       }
-    if (comparisonColumn == "Generosity"){
+    if (["Generosity","Social Support"].includes(comparisonColumn) ){
             inputComaparison = localStorage.getItem("generosity");
     }
     
