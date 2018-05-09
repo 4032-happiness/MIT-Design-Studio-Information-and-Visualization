@@ -2,10 +2,13 @@ var margin;
 var width;
 var height;
 var selected;
+var radius = 4;
+var dotcolor = "#225378";
+var inputcolor ="#EB7F00"; 
 console.log(document.documentElement.clientWidth);
 console.log(document.getElementById("scatter-plot").clientWidth);
 selected = document.getElementById("gdp-button");
-selected.classList.add("selected");
+selected.classList.add("selected1");
 
 
 margin = {top: 20, right: 20, bottom: 30, left: 40};
@@ -26,7 +29,7 @@ var year = 2015;
 
 
 
-var color ="#ACF0F2";
+var color =dotcolor;
 var comparisonColumn = "Log GDP per capita";
 // setup y, in this case the values in X axis are the proteins
 // We need to define the range, scale and position
@@ -98,7 +101,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 7)
+      .attr("r", radius)
       .attr("cx", xMap)
       .attr("cy", yMap)
       .style("fill", function(d) { return color;})// 
@@ -121,10 +124,10 @@ d3.csv("WHR2.csv", function(error, data) {
     //add users point
     svg.append("circle")
     .attr("class","dot input")
-    .attr("r",7)
+    .attr("r",radius)
     .attr("cx",xScale(inputHappiness))
     .attr("cy",yScale(inputComaparison))
-    .style("fill", "#EB7F00")
+    .style("fill", inputcolor)
     .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
@@ -145,9 +148,9 @@ d3.csv("WHR2.csv", function(error, data) {
 
 document.getElementById("generosity-button").addEventListener("click",function(e){
     console.log(document.getElementById("generosity-button").value);
-    comparisonColumn = document.getElementById("generosity-button").value;
+    comparisonColumn = "Generosity";
     inputComaparison = 1;
-    color = "#1695A3";
+    color = "#225378";//"#1695A3";
     selected.classList.remove("selected");
     selected = document.getElementById("generosity-button");
     selected.classList.add("selected");
@@ -159,8 +162,8 @@ document.getElementById("generosity-button").addEventListener("click",function(e
 
 document.getElementById("social-support-button").addEventListener("click",function(e){
     console.log(document.getElementById("social-support-button").value);
-    comparisonColumn = document.getElementById("social-support-button").value;
-    color = "#225378";
+    comparisonColumn = "Social Support";
+    color = dotcolor;//"#225378";
     inputComaparison = 1;
     selected.classList.remove("selected");
     selected = document.getElementById("social-support-button");
@@ -170,8 +173,8 @@ document.getElementById("social-support-button").addEventListener("click",functi
 
 document.getElementById("life-expectancy-button").addEventListener("click",function(e){
     console.log(document.getElementById("life-expectancy-button").value);
-    comparisonColumn = document.getElementById("life-expectancy-button").value;
-    color = "#B4DC7F";
+    comparisonColumn = "Healthy life expectancy at birth";
+    color = dotcolor;//"#B4DC7F";
     inputComaparison = 60;
     selected.classList.remove("selected");
     selected = document.getElementById("life-expectancy-button");
@@ -180,9 +183,9 @@ document.getElementById("life-expectancy-button").addEventListener("click",funct
 });
 document.getElementById("gdp-button").addEventListener("click",function(e){
     console.log(document.getElementById("gdp-button").value);
-    comparisonColumn = document.getElementById("gdp-button").value;
+    comparisonColumn = "Log GDP per capita";
     inputComaparison = 4;
-    color = "#ACF0F2";
+    color = dotcolor;//"#ACF0F2";
     selected.classList.remove("selected");
     selected = document.getElementById("gdp-button");
     selected.classList.add("selected");
@@ -190,9 +193,9 @@ document.getElementById("gdp-button").addEventListener("click",function(e){
 });
 document.getElementById("positive-affect-button").addEventListener("click",function(e){
     console.log(document.getElementById("positive-affect-button").value);
-    comparisonColumn = document.getElementById("positive-affect-button").value;
+    comparisonColumn ="Positive Affect";
     inputComaparison = 4;
-    color = "#ACF0F2";
+    color = dotcolor;//"#ACF0F2";
     selected.classList.remove("selected");
     selected = document.getElementById("positive-affect-button");
     selected.classList.add("selected");
@@ -200,9 +203,9 @@ document.getElementById("positive-affect-button").addEventListener("click",funct
 });
 document.getElementById("negative-affect-button").addEventListener("click",function(e){
     console.log(document.getElementById("negative-affect-button").value);
-    comparisonColumn = document.getElementById("negative-affect-button").value;
+    comparisonColumn = "Negative Affect";
     inputComaparison = 4;
-    color = "#ACF0F2";
+    color = dotcolor;//"#ACF0F2";
     selected.classList.remove("selected");
     selected = document.getElementById("negative-affect-button");
     selected.classList.add("selected");
@@ -292,7 +295,7 @@ function updateData(){
         .data(data)
         .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", 7)
+        .attr("r", radius)
         .attr("cx", xMap)
         .attr("cy", yMap)
         .style("fill", function(d) { return color;})// color(cValue(d));}) 
@@ -314,10 +317,10 @@ function updateData(){
     //add users point
     svg.append("circle")
         .attr("class","dot input")
-        .attr("r",7)
+        .attr("r",radius)
         .attr("cx",xScale(inputHappiness))
         .attr("cy",yScale(inputComaparison))
-        .style("fill", "#EB7F00")
+        .style("fill", inputcolor)
         .on("mouseover", function(d) {
         tooltip.transition()
             .duration(200)
