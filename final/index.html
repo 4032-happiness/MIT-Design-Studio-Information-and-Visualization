@@ -5,8 +5,6 @@
 <body>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href="final.css" rel="stylesheet"/>
-<link href = "scatter.css" rel="stylesheet"/>
-<link href="line.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <div id ="header" class = "container">
     <div class ="row">
@@ -24,120 +22,190 @@
     </div>
 </div>
 
-<div id ="form">
-  <div id ="form-body" class = "container">
-    <table>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>0</td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>Happiness</td>
-        <td>Please imagine a ladder, with steps numbered
-from 0 at the bottom to 10 at the top. The top
-of the ladder represents the best possible life 
-or you and the bottom of the ladder represents
-the worst possible life for you. On which step of 
-the ladder would you say you personally feel you 
-stand at this time?</td>
-        <td><input type="radio" name="happiness_ladder" value="0"></td>
-        <td><input type="radio" name="happiness_ladder" value="1"></td>
-        <td><input type="radio" name="happiness_ladder" value="2"></td>
-        <td><input type="radio" name="happiness_ladder" value="3"></td>
-        <td><input type="radio" name="happiness_ladder" value="4"></td>
-        <td><input type="radio" name="happiness_ladder" value="5"></td>
-        <td><input type="radio" name="happiness_ladder" value="6"></td>
-        <td><input type="radio" name="happiness_ladder" value="7"></td>
-        <td><input type="radio" name="happiness_ladder" value="8"></td>
-        <td><input type="radio" name="happiness_ladder" value="9"></td>
-        <td><input type="radio" name="happiness_ladder" value="10"></td>
-      </tr>
-      <tr>
-        <td>Generosity</td>
-        <td>On a  scale of 1 to 10, how would you rate your level of giving this year?</td>
-        <td><input type="radio" name="generosity" value="0"></td>
-        <td><input type="radio" name="generosity" value="1"></td>
-        <td><input type="radio" name="generosity" value="2"></td>
-        <td><input type="radio" name="generosity" value="3"></td>
-        <td><input type="radio" name="generosity" value="4"></td>
-        <td><input type="radio" name="generosity" value="5"></td>
-        <td><input type="radio" name="generosity" value="6"></td>
-        <td><input type="radio" name="generosity" value="7"></td>
-        <td><input type="radio" name="generosity" value="8"></td>
-        <td><input type="radio" name="generosity" value="9"></td>
-        <td><input type="radio" name="generosity" value="10"></td>
-      </tr>
-      <tr>
-        <td>Positive Affect</td>
-        <td>On a  scale of 1 to 10, rate how much you smiled and laughed this past year?</td>
-        <td><input type="radio" name="smile" value="0"></td>
-        <td><input type="radio" name="smile" value="1"></td>
-        <td><input type="radio" name="smile" value="2"></td>
-        <td><input type="radio" name="smile" value="3"></td>
-        <td><input type="radio" name="smile" value="4"></td>
-        <td><input type="radio" name="smile" value="5"></td>
-        <td><input type="radio" name="smile" value="6"></td>
-        <td><input type="radio" name="smile" value="7"></td>
-        <td><input type="radio" name="smile" value="8"></td>
-        <td><input type="radio" name="smile" value="9"></td>
-        <td><input type="radio" name="smile" value="10"></td>
-      </tr>
-      <tr>
-        <td>Negative Affect</td>
-        <td>On a  scale of 1 to 10, rate how much you frowned and cried this past year?</td>
-        <td><input type="radio" name="worry" value="0"></td>
-        <td><input type="radio" name="worry" value="1"></td>
-        <td><input type="radio" name="worry" value="2"></td>
-        <td><input type="radio" name="worry" value="3"></td>
-        <td><input type="radio" name="worry" value="4"></td>
-        <td><input type="radio" name="worry" value="5"></td>
-        <td><input type="radio" name="worry" value="6"></td>
-        <td><input type="radio" name="worry" value="7"></td>
-        <td><input type="radio" name="worry" value="8"></td>
-        <td><input type="radio" name="worry" value="9"></td>
-        <td><input type="radio" name="worry" value="10"></td>
-      </tr>
-      <tr>
-        <td>Social Support</td>
-        <td>On a scale of 1 to 10, how much support do you feel you’ve received this past year?</td>
-        <td><input type="radio" name="social_support" value="0"></td>
-        <td><input type="radio" name="social_support" value="1"></td>
-        <td><input type="radio" name="social_support" value="2"></td>
-        <td><input type="radio" name="social_support" value="3"></td>
-        <td><input type="radio" name="social_support" value="4"></td>
-        <td><input type="radio" name="social_support" value="5"></td>
-        <td><input type="radio" name="social_support" value="6"></td>
-        <td><input type="radio" name="social_support" value="7"></td>
-        <td><input type="radio" name="social_support" value="8"></td>
-        <td><input type="radio" name="social_support" value="9"></td>
-        <td><input type="radio" name="social_support" value="10"></td>
-      </tr>
-    </table>
+<div id="form">
+  <div id="form-body" class="container">
 
-    <div class ="row form-space">
-      <div class = "col offset-md-4">
-        <div class ="input-label">Country:</div>
-      </div>
-      <div class = "col">
-        <select name="country" id="country" class="form-input">
-          <option value="United States">United States</option>
-        </select>
-      </div>
+    <div class="form-section">
+      <h2 class="row">Happiness</h2>
+      <p class="row">
+        Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top.
+        The top of the ladder represents the best possible life or you and the bottom of
+        the ladder represents the worst possible life for you. On which step of the ladder
+        would you say you personally feel you stand at this time?
+      </p>
+      <table>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="happiness_ladder" value="0"></td>
+          <td><input type="radio" name="happiness_ladder" value="1"></td>
+          <td><input type="radio" name="happiness_ladder" value="2"></td>
+          <td><input type="radio" name="happiness_ladder" value="3"></td>
+          <td><input type="radio" name="happiness_ladder" value="4"></td>
+          <td><input type="radio" name="happiness_ladder" value="5"></td>
+          <td><input type="radio" name="happiness_ladder" value="6"></td>
+          <td><input type="radio" name="happiness_ladder" value="7"></td>
+          <td><input type="radio" name="happiness_ladder" value="8"></td>
+          <td><input type="radio" name="happiness_ladder" value="9"></td>
+          <td><input type="radio" name="happiness_ladder" value="10"></td>
+        </tr>
+      </table>
     </div>
-    <div class="row justify-content-center form-space">
-      <div class = "col offset-md-6">
-        <button type ="button" id ="submit"> submit</button>
+
+    <div class="form-section">
+      <h2 class="row">Generosity</h2>
+      <p class="row">On a  scale of 0 to 10, how would you rate your level of giving this year?</p>
+      <table>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="generosity" value="0"></td>
+          <td><input type="radio" name="generosity" value="1"></td>
+          <td><input type="radio" name="generosity" value="2"></td>
+          <td><input type="radio" name="generosity" value="3"></td>
+          <td><input type="radio" name="generosity" value="4"></td>
+          <td><input type="radio" name="generosity" value="5"></td>
+          <td><input type="radio" name="generosity" value="6"></td>
+          <td><input type="radio" name="generosity" value="7"></td>
+          <td><input type="radio" name="generosity" value="8"></td>
+          <td><input type="radio" name="generosity" value="9"></td>
+          <td><input type="radio" name="generosity" value="10"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-section">
+      <h2 class="row">Positive Affect</h2>
+      <p class="row">On a  scale of 0 to 10, rate how much you smiled and laughed this past year?</p>
+      <table>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="smile" value="0"></td>
+          <td><input type="radio" name="smile" value="1"></td>
+          <td><input type="radio" name="smile" value="2"></td>
+          <td><input type="radio" name="smile" value="3"></td>
+          <td><input type="radio" name="smile" value="4"></td>
+          <td><input type="radio" name="smile" value="5"></td>
+          <td><input type="radio" name="smile" value="6"></td>
+          <td><input type="radio" name="smile" value="7"></td>
+          <td><input type="radio" name="smile" value="8"></td>
+          <td><input type="radio" name="smile" value="9"></td>
+          <td><input type="radio" name="smile" value="10"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-section">
+      <h2 class="row">Negative Affect</h2>
+      <p class="row">On a  scale of 0 to 10, rate how much you frowned and cried this past year?</p>
+      <table>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="worry" value="0"></td>
+          <td><input type="radio" name="worry" value="1"></td>
+          <td><input type="radio" name="worry" value="2"></td>
+          <td><input type="radio" name="worry" value="3"></td>
+          <td><input type="radio" name="worry" value="4"></td>
+          <td><input type="radio" name="worry" value="5"></td>
+          <td><input type="radio" name="worry" value="6"></td>
+          <td><input type="radio" name="worry" value="7"></td>
+          <td><input type="radio" name="worry" value="8"></td>
+          <td><input type="radio" name="worry" value="9"></td>
+          <td><input type="radio" name="worry" value="10"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-section">
+      <h2 class="row">Social Support</h2>
+      <p class="row">On a scale of 0 to 10, how much support do you feel you've received this past year?</p>
+      <table>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><input type="radio" name="social_support" value="0"></td>
+          <td><input type="radio" name="social_support" value="1"></td>
+          <td><input type="radio" name="social_support" value="2"></td>
+          <td><input type="radio" name="social_support" value="3"></td>
+          <td><input type="radio" name="social_support" value="4"></td>
+          <td><input type="radio" name="social_support" value="5"></td>
+          <td><input type="radio" name="social_support" value="6"></td>
+          <td><input type="radio" name="social_support" value="7"></td>
+          <td><input type="radio" name="social_support" value="8"></td>
+          <td><input type="radio" name="social_support" value="9"></td>
+          <td><input type="radio" name="social_support" value="10"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-section">
+      <h2 class="row">Country</h2>
+      <p class="row">Which country are you from?</p>
+      <select name="country" id="country" class="form-input row">
+        <option value="United States">United States</option>
+      </select>
+    </div>
+
+    <div class="form-section">
+      <div class="row">
+        <button type="button" id="submit">Submit</button>
       </div>
     </div>
   </div>
