@@ -105,7 +105,7 @@ d3.csv("WHR2.csv", function(error, data) {
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html(d["country"] + "<br/> (" + xValue(d) 
+          tooltip.html(d["Country"] + "<br/> (" + xValue(d) 
 	        + ", " + yValue(d) + ")")
                .style("left", (event.clientX ) + "px")
                .style("top", (event.clientY) + "px");
@@ -174,6 +174,20 @@ document.getElementById("gdp-button").addEventListener("click",function(e){
     color = "#ACF0F2";
     updateData();
 });
+document.getElementById("positive-affect-button").addEventListener("click",function(e){
+    console.log(document.getElementById("positive-affect-button").value);
+    comparisonColumn = document.getElementById("positive-affect-button").value;
+    inputComaparison = 4;
+    color = "#ACF0F2";
+    updateData();
+});
+document.getElementById("negative-affect-button").addEventListener("click",function(e){
+    console.log(document.getElementById("negative-affect-button").value);
+    comparisonColumn = document.getElementById("negative-affect-button").value;
+    inputComaparison = 4;
+    color = "#ACF0F2";
+    updateData();
+});
 function updateData(){
     // load data
     d3.csv("WHR2.csv", function(error, data) {
@@ -206,6 +220,14 @@ function updateData(){
     }
     if (comparisonColumn == "Social Support"){
         inputComaparison = localStorage.getItem("social_support");
+        console.log("social support");
+    }
+    if (comparisonColumn == "Negative Affect"){
+        inputComaparison = localStorage.getItem("negative_affect");
+        console.log("social support");
+    }
+    if (comparisonColumn == "Positive Affect"){
+        inputComaparison = localStorage.getItem("positive_affect");
         console.log("social support");
     }
 
@@ -255,7 +277,7 @@ function updateData(){
         tooltip.transition()
             .duration(200)
             .style("opacity", .9);
-        tooltip.html(d["country"] + "<br/> (" + xValue(d) 
+        tooltip.html(d["Country"] + "<br/> (" + xValue(d) 
                      + ", " + yValue(d) + ")")
             .style("left", (event.clientX) + "px")
             .style("top", (event.clientY) + "px");
