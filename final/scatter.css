@@ -104,6 +104,9 @@ p{
     border: 1px solid #EB7F00;
 }
 
-.scatter-button:active{
-    
+.selected{
+    background: #EB7F00 ;
+    border-radius: 3px;
+    color:white;
+    border: 1px solid #EB7F00;
 }

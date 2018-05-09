@@ -1,9 +1,11 @@
 var margin;
 var width;
 var height;
+var selected;
 console.log(document.documentElement.clientWidth);
 console.log(document.getElementById("scatter-plot").clientWidth);
-
+selected = document.getElementById("gdp-button");
+selected.classList.add("selected");
 
 
 margin = {top: 20, right: 20, bottom: 30, left: 40};
@@ -146,6 +148,9 @@ document.getElementById("generosity-button").addEventListener("click",function(e
     comparisonColumn = document.getElementById("generosity-button").value;
     inputComaparison = 1;
     color = "#1695A3";
+    selected.classList.remove("selected");
+    selected = document.getElementById("generosity-button");
+    selected.classList.add("selected");
     updateData();
     
     
@@ -157,6 +162,9 @@ document.getElementById("social-support-button").addEventListener("click",functi
     comparisonColumn = document.getElementById("social-support-button").value;
     color = "#225378";
     inputComaparison = 1;
+    selected.classList.remove("selected");
+    selected = document.getElementById("social-support-button");
+    selected.classList.add("selected");
     updateData();
 });
 
@@ -165,6 +173,9 @@ document.getElementById("life-expectancy-button").addEventListener("click",funct
     comparisonColumn = document.getElementById("life-expectancy-button").value;
     color = "#B4DC7F";
     inputComaparison = 60;
+    selected.classList.remove("selected");
+    selected = document.getElementById("life-expectancy-button");
+    selected.classList.add("selected");
     updateData();
 });
 document.getElementById("gdp-button").addEventListener("click",function(e){
@@ -172,6 +183,9 @@ document.getElementById("gdp-button").addEventListener("click",function(e){
     comparisonColumn = document.getElementById("gdp-button").value;
     inputComaparison = 4;
     color = "#ACF0F2";
+    selected.classList.remove("selected");
+    selected = document.getElementById("gdp-button");
+    selected.classList.add("selected");
     updateData();
 });
 document.getElementById("positive-affect-button").addEventListener("click",function(e){
@@ -179,6 +193,9 @@ document.getElementById("positive-affect-button").addEventListener("click",funct
     comparisonColumn = document.getElementById("positive-affect-button").value;
     inputComaparison = 4;
     color = "#ACF0F2";
+    selected.classList.remove("selected");
+    selected = document.getElementById("positive-affect-button");
+    selected.classList.add("selected");
     updateData();
 });
 document.getElementById("negative-affect-button").addEventListener("click",function(e){
@@ -186,6 +203,9 @@ document.getElementById("negative-affect-button").addEventListener("click",funct
     comparisonColumn = document.getElementById("negative-affect-button").value;
     inputComaparison = 4;
     color = "#ACF0F2";
+    selected.classList.remove("selected");
+    selected = document.getElementById("negative-affect-button");
+    selected.classList.add("selected");
     updateData();
 });
 function updateData(){
@@ -217,18 +237,21 @@ function updateData(){
     if (comparisonColumn == "Generosity"){
         inputComaparison = localStorage.getItem("generosity");
         console.log("generosity");
+        
     }
     if (comparisonColumn == "Social Support"){
         inputComaparison = localStorage.getItem("social_support");
-        console.log("social support");
+        
     }
     if (comparisonColumn == "Negative Affect"){
         inputComaparison = localStorage.getItem("negative_affect");
-        console.log("social support");
+        
     }
     if (comparisonColumn == "Positive Affect"){
         inputComaparison = localStorage.getItem("positive_affect");
-        console.log("social support");
+        //console.log("social support");
+        
+        
     }
 
            
