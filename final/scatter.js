@@ -56,7 +56,7 @@ var tooltip = d3.select("#scatter-plot").append("div")
 // load data
 d3.csv("WHR2.csv", function(error, data) {
   // change string (from CSV) into number format
-  
+
   data.forEach(function(d) {
     d["Life Ladder"] = +d["Life Ladder"];
     d[comparisonColumn] = +d[comparisonColumn];
@@ -71,7 +71,7 @@ d3.csv("WHR2.csv", function(error, data) {
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + (height/2) + ")")
-      .call(xAxis)
+      .call(xAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
       .attr("x", width/2)
@@ -82,7 +82,7 @@ d3.csv("WHR2.csv", function(error, data) {
   // y-axis
   svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis)
+      .call(yAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
@@ -99,13 +99,13 @@ d3.csv("WHR2.csv", function(error, data) {
       .attr("r", 7)
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", function(d) { return color;})// 
+      .style("fill", function(d) { return color;})//
       .on("mouseover", function(d) {
           console.log(d)
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html(d["country"] + "<br/> (" + xValue(d) 
+          tooltip.html(d["country"] + "<br/> (" + xValue(d)
 	        + ", " + yValue(d) + ")")
                .style("left", (event.clientX ) + "px")
                .style("top", (event.clientY) + "px");
@@ -115,7 +115,7 @@ d3.csv("WHR2.csv", function(error, data) {
                .duration(500)
                .style("opacity", 0);
       });
-    
+
     //add users point
     svg.append("circle")
     .attr("class","dot input")
@@ -147,9 +147,9 @@ document.getElementById("generosity-button").addEventListener("click",function(e
     inputComaparison = 1;
     color = "#1695A3";
     updateData();
-    
-    
-    
+
+
+
 });
 
 document.getElementById("social-support-button").addEventListener("click",function(e){
@@ -178,15 +178,15 @@ function updateData(){
     // load data
     d3.csv("WHR2.csv", function(error, data) {
   // change string (from CSV) into number format
-    
+
     data.forEach(function(d) {
         d["Life Ladder"] = +d["Life Ladder"];
         d[comparisonColumn] = +d[comparisonColumn];
     });
-        
+
      svg.selectAll(".dot").remove();
      d3.selectAll('.axis').remove();
-    //rescale domain and range    
+    //rescale domain and range
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
@@ -194,7 +194,7 @@ function updateData(){
         if (d.country ==inputCountry){
             inputComaparison = d[comparisonColumn];
             return d[comparisonColumn];
-            
+
         }
             return 0;
         })
@@ -209,16 +209,16 @@ function updateData(){
         console.log("social support");
     }
 
-           
-    
-        
+
+
+
     data.forEach(function (d){
         if (d.country ==inputCountry){
             console.log(d[comparisonColumn]);
-            
+
         }
     })
-         
+
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + (height/2) + ")")
@@ -250,12 +250,12 @@ function updateData(){
         .attr("r", 7)
         .attr("cx", xMap)
         .attr("cy", yMap)
-        .style("fill", function(d) { return color;})// color(cValue(d));}) 
+        .style("fill", function(d) { return color;})// color(cValue(d));})
         .on("mouseover", function(d) {
         tooltip.transition()
             .duration(200)
             .style("opacity", .9);
-        tooltip.html(d["country"] + "<br/> (" + xValue(d) 
+        tooltip.html(d["country"] + "<br/> (" + xValue(d)
                      + ", " + yValue(d) + ")")
             .style("left", (event.clientX) + "px")
             .style("top", (event.clientY) + "px");
@@ -286,8 +286,8 @@ function updateData(){
             .duration(500)
             .style("opacity", 0);
     });
-    
-    
+
+
 });
 
 }

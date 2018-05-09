@@ -1,6 +1,6 @@
-body {
+/* body {
   font: 11px sans-serif;
-}
+} */
 
 .axis path,
 .axis line {
@@ -29,7 +29,7 @@ body {
 #scatter-title{
     grid-column-start:1;
     grid-row-start: 1;
-    
+
 }
 #input-form{
     grid-row-start:2;
@@ -40,9 +40,6 @@ body {
 }
 .input{
     z-index: 100000;
-}
-html{
-  background:#e74c3c;
 }
 
 form{
@@ -88,7 +85,7 @@ input[type="range"]::-webkit-slider-thumb:after{
   background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
 }
 
-p{
+#scatter-container p{
   width:100%;
   text-align:center;
   color:white;
@@ -105,5 +102,30 @@ p{
 }
 
 .scatter-button:active{
-    
+
+}
+
+#scatter-plot-row {
+  --ultra-light-gray: #efefef;
+  --light-gray: #888;
+  --medium-gray: #666;
+  --dark-gray: #333;
+}
+
+#scatter-plot-row path.domain {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#scatter-plot-row g.tick line {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#scatter-plot-row g.tick text {
+  fill: var(--medium-gray);
+}
+
+#scatter-plot-row text {
+  fill: var(--medium-gray);
 }

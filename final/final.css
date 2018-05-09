@@ -3,6 +3,11 @@ body {
   padding: 40px 0;
 }
 
+p {
+  max-width: 800px;
+  color: #333;
+}
+
 #header{
     text-align: center;
     display:flex;
@@ -28,10 +33,17 @@ body {
 }
 
 #submit {
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid transparent;
+  border-color: #007bff;
+  border-radius: .25rem;
+  padding: .375rem .75rem;
   margin: 0 auto;
+  cursor: pointer;
+}
+#submit:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 /* ... Form Styles */
-
-#scatter-container{
-    page-break-before: always;
-}
