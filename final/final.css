@@ -1,15 +1,37 @@
 
+body {
+  padding: 40px 0;
+}
+
 #header{
     text-align: center;
     display:flex;
     justify-content: center;
 }
-.form-space{
-    margin-top: 2px;
+
+/* Form Styles */
+#form-body {
+  padding: 0;
+  max-width: 800px;
 }
-#form{
-    page-break-after:always;
+
+.form-section {
+  margin-top: 40px;
 }
+
+.form-section table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-section table td {
+  padding: 0 20px;
+}
+
+#submit {
+  margin: 0 auto;
+}
+/* ... Form Styles */
+
 #scatter-container{
     page-break-before: always;
 }
