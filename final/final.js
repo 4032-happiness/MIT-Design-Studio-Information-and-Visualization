@@ -18,11 +18,8 @@ window.onload = function () {
        });
 
  }
-var sheet = document.createElement('style'),
-  $rangeInput = $('.range input'),
-  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
 
-document.body.appendChild(sheet);
+
 
 
 
@@ -36,10 +33,10 @@ function createEvent(e){
     localStorage.setItem("country",country);
     
     positive_affect = getRadioValue("smile");//document.getElementById("smile").value;
-    localStorage.setItem("smile",positive_affect);
+    localStorage.setItem("positive_affect",positive_affect);
     
     negative_affect = getRadioValue("worry");//document.getElementById("worry").value;
-    localStorage.setItem("worry",negative_affect);
+    localStorage.setItem("negative_affect",negative_affect);
     
     social_support = getRadioValue("social_support");//document.getElementById("social_support").value;
     localStorage.setItem("social_support",social_support);

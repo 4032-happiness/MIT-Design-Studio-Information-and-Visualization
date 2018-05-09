@@ -21,9 +21,8 @@ var inputHappiness=parseInt(localStorage.getItem("happiness"));
 var inputComaparison = 7;
 var inputCountry = localStorage.getItem("country");
 var year = 2015;
-year = parseInt(document.getElementById("year-slider").value);
-var yearString = year.toString();
-document.getElementById("year-value").innerHTML = yearString;
+
+
 
 var color ="#ACF0F2";
 var comparisonColumn = "Log GDP per capita";
@@ -55,14 +54,9 @@ var tooltip = d3.select("#scatter-plot").append("div")
 
 
 // load data
-d3.csv("WHR.csv", function(error, data) {
+d3.csv("WHR2.csv", function(error, data) {
   // change string (from CSV) into number format
-  data = data.filter(function(d){
-      if (d.year==year){
-          return true;
-      }
-      return false;
-  });
+  
   data.forEach(function(d) {
     d["Life Ladder"] = +d["Life Ladder"];
     d[comparisonColumn] = +d[comparisonColumn];
@@ -146,12 +140,7 @@ d3.csv("WHR.csv", function(error, data) {
 
 
 });
-document.getElementById("year-slider").addEventListener("click",function(e){
-    year = parseInt(document.getElementById("year-slider").value);
-    var yearString = year.toString();
-    document.getElementById("year-value").innerHTML = yearString;
-    updateData();
-});
+
 document.getElementById("generosity-button").addEventListener("click",function(e){
     console.log(document.getElementById("generosity-button").value);
     comparisonColumn = document.getElementById("generosity-button").value;
@@ -187,14 +176,9 @@ document.getElementById("gdp-button").addEventListener("click",function(e){
 });
 function updateData(){
     // load data
-    d3.csv("WHR.csv", function(error, data) {
+    d3.csv("WHR2.csv", function(error, data) {
   // change string (from CSV) into number format
-    data = data.filter(function(d){
-        if (d.year==year){
-            return true;
-        }
-        return false;
-    });
+    
     data.forEach(function(d) {
         d["Life Ladder"] = +d["Life Ladder"];
         d[comparisonColumn] = +d[comparisonColumn];
@@ -205,7 +189,7 @@ function updateData(){
     //rescale domain and range    
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
-    if (["Log GDP per capita","Healthy life expectancy at birth"].includes(comparisonColumn) ){
+    if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
        data.forEach(function (d){
         if (d.country ==inputCountry){
             inputComaparison = d[comparisonColumn];
@@ -215,9 +199,17 @@ function updateData(){
             return 0;
         })
       }
-    if (["Generosity","Social Support"].includes(comparisonColumn) ){
-            inputComaparison = localStorage.getItem("generosity");
+    ///if (["Generosity","Social Support"].includes(comparisonColumn) ){
+    if (comparisonColumn == "Generosity"){
+        inputComaparison = localStorage.getItem("generosity");
+        console.log("generosity");
     }
+    if (comparisonColumn == "Social Support"){
+        inputComaparison = localStorage.getItem("social_support");
+        console.log("social support");
+    }
+
+           
     
         
     data.forEach(function (d){
