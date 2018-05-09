@@ -97,3 +97,9 @@ p{
   margin-top:30px;
 }
 
+.scatter-button{
+    background: white ;
+    border-radius: 3px;
+    color:#EB7F00;
+    border: 1px solid #EB7F00;
+}
