@@ -14,11 +14,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <div id="header" class="container">
   <h1 class="title">Rank Your Happiness</h1>
-  <p class="description">Project description can go here........</p>
+  <p class="description">The World Happiness Report is a survey on global happiness that spans eleven years. The report ranks 156 countries around the world by happiness, collecting data from surveys sent out to thousands of citizens of each country included. This visualization provides four charts that allow you to get a better understanding of happiness trends across the world and overtime. Additionally, these charts allow you to get a better sense of how your happiness stacks up with others in your country and the world at large. The survey that you just completed was an abbreviated take on the survey sent out as part of the World Happiness report, that allows us to graph your happiness alongside data taken from the report. </p>
 </div>
 
 
-<div id ="form">
+<!--<div id ="form">
     <div id ="form-body" class = "container">
 
         <div class = "row form-space">
@@ -28,7 +28,7 @@
             <div class ="col">
                 <input id = "happiness_ladder" type="range" min="0" max="10" class = "form-input">
                 <!--<input type="text" id = "happiness_ladder"  placeholder=" Happiness" class = "form-input">-->
-            </div>
+            <!--</div>
         </div>
         <div class ="row form-space">
             <div class = "col offset-md-4">
@@ -47,7 +47,7 @@
             <div class = "col">
                 <input id = "generosity" type="range" min="0" max="10" class = "form-input">
                 <!--<input type="text" id = "enjoyment"  placeholder="Enjoyment" class = "form-input">-->
-            </div>
+            <!--</div>
         </div>
         <div class = "row form-space">
             <div class = "col offset-md-4">
@@ -56,7 +56,7 @@
             <div class = "col">
                 <input id = "smile" type="range" min="0" max="10" class = "form-input">
                 <!--<input type="text" id = "smile"  placeholder="Smile" class = "form-input">-->
-            </div>
+            <!--</div>
         </div>
         <div class = "row form-space">
             <div class = "col offset-md-4">
@@ -65,7 +65,7 @@
             <div class = "col">
                 <input id = "worry" type="range" min="0" max="10" class = "form-input">
                 <!--<input type="text" id = "worry"  placeholder="Worry" class = "form-input">-->
-            </div>
+            <!--</div>
         </div>
         <div class ="row form-space">
             <div class = "col offset-md-4">
@@ -86,13 +86,13 @@
         </div>
     </div>
 
-</div>
+</div>-->
     
 <!------------- Radar Chart ------------------------->
 <script src="radar.js"></script>
 <div id = "bar-container" class = "container">
     <div class = "row">
-        <h2 id ="scatter-title">Radar Chart</h2>
+        <h2 id ="radar-title">Radar Chart</h2>
             <div id = radarChart>
                   <style>
                     body {
@@ -186,7 +186,7 @@
 <!------------- Bar Chart ------------------------->
 <div id = "bar-container" class = "container">
     <div class = "row">
-        <h2 id ="line-title">Bar Chart</h2>
+        <h2 id ="bar-title">Bar Chart</h2>
         <br>
             <div id = "button-row">
                 <input id = "bar-generosity" type="button" value="Generosity">

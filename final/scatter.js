@@ -44,7 +44,7 @@ var cValue = function(d){ return d.country;}
 
 // add the graph canvas to the body of the webpage
 // svg is similar to the 'ctx' element from our in class tutorial
-var svg = d3.select("#scatter-plot").append("svg") // here the canvas is just in the body
+var scattersvg = d3.select("#scatter-plot").append("svg") // here the canvas is just in the body
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -73,9 +73,9 @@ d3.csv("WHR2.csv", function(error, data) {
   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
   // x-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + (height/2) + ")")
+      .attr("transform", "translate(0," + height/2 + ")")
       .call(xAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
@@ -85,7 +85,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .text("Happiness Rating");
 
   // y-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "y axis")
       .call(yAxis.outerTickSize(0))
     .append("text")
@@ -97,7 +97,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .text(comparisonColumn);
 
   // draw dots
-  svg.selectAll(".dot")
+  scattersvg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
@@ -122,7 +122,7 @@ d3.csv("WHR2.csv", function(error, data) {
       });
 
     //add users point
-    svg.append("circle")
+    scattersvg.append("circle")
     .attr("class","dot input")
     .attr("r",radius)
     .attr("cx",xScale(inputHappiness))
@@ -221,7 +221,7 @@ function updateData(){
         d[comparisonColumn] = +d[comparisonColumn];
     });
 
-     svg.selectAll(".dot").remove();
+     scattersvg.selectAll(".dot").remove();
      d3.selectAll('.axis').remove();
     //rescale domain and range
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
@@ -267,7 +267,7 @@ function updateData(){
         }
     })
 
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + (height/2) + ")")
       .call(xAxis)
@@ -279,7 +279,7 @@ function updateData(){
       .text("Happiness Rating");
 
   // y-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
@@ -291,7 +291,7 @@ function updateData(){
       .text(comparisonColumn);
 
     // draw dots
-    svg.selectAll(".dot")
+    scattersvg.selectAll(".dot")
         .data(data)
         .enter().append("circle")
         .attr("class", "dot")
@@ -315,7 +315,7 @@ function updateData(){
     });
     console.log(comparisonColumn, inputComaparison);
     //add users point
-    svg.append("circle")
+    scattersvg.append("circle")
         .attr("class","dot input")
         .attr("r",radius)
         .attr("cx",xScale(inputHappiness))
