@@ -9,7 +9,7 @@ selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
 let scatterPlotMargin = { top: 10, right: 20, bottom: 30, left: 30 }
-var margin = {top: 20, right: 0, bottom: 0, left: 20};
+// var margin = {top: 20, right: 0, bottom: 0, left: 20};
     //var plot_width = document.getElementById("#scatter-plot-row").width;
     //console.log(plot_width);
     scatterWidth = document.getElementById("scatter-plot").clientWidth - scatterPlotMargin.left - scatterPlotMargin.right;

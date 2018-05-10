@@ -52,6 +52,10 @@ p {
 
 
 /* Radar Chart and Bar Chart Styles */
+#radar-container {
+  margin-top: 50px;
+}
+
 #radar-container, #bar-container {
   display: flex;
   flex-direction: column;

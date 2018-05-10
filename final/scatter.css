@@ -87,11 +87,6 @@ form{
 }
 
 #scatter-plot {
-  --ultra-light-gray: #efefef;
-  --light-gray: #888;
-  --medium-gray: #666;
-  --dark-gray: #333;
-
   width: 80vw;
   height: 70vh;
 }
@@ -112,4 +107,8 @@ form{
 
 #scatter-plot text {
   fill: var(--medium-gray);
+}
+
+#scatter-plot .scatter-axis text {
+  fill: var(--light-gray);
 }

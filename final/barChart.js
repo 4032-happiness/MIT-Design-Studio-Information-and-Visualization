@@ -7,11 +7,11 @@ var generosity = localStorage.getItem("generosity");
 var life_expectancy = localStorage.getItem("life_expectancy");
 
 var barSVG = document.getElementById("barSVG");
-barSVG.setAttribute("width",  .9 * window.innerWidth);
+barSVG.setAttribute("width",  .8 * window.innerWidth);
 barSVG.setAttribute("height", .9 * window.innerHeight);
 
 var svgBar = d3v4.select("svg"),
-    margin = {top: 20, right: 10, bottom: 150, left: 40},
+    margin = {top: 20, right: 10, bottom: 150, left: 20},
     width = +svgBar.attr("width") - margin.left  - margin.right,
     height = +svgBar.attr("height") - margin.top - margin.bottom;
     console.log(width, height);
@@ -66,7 +66,7 @@ var barData = null;
       g.append("g")
           .attr("class", "bar-axis axis--x")
           .attr("transform", "translate(0," + height + ")")
-          .call(d3v4.axisBottom(x))
+          .call(d3v4.axisBottom(x).tickSizeOuter(0))
           .selectAll("text")
           .style("text-anchor", "end")
           .style("font-size", "7px")
@@ -77,7 +77,7 @@ var barData = null;
 
       g.append("g")
           .attr("class", "bar-axis axis--y")
-          .call(d3v4.axisLeft(y).ticks(10))
+          .call(d3v4.axisLeft(y).ticks(10).tickSizeOuter(0))
           .append("text")
           .attr("transform", "rotate(-90)")
           .attr("y", 6)
@@ -93,9 +93,11 @@ var barData = null;
           .attr("x", function(d) { return x(d.country); })
           .attr("y", function(d) { return y(d[phrase]); })
           .attr("width", x.bandwidth())
+          .style("opacity", function(d) { return (d.Country == "You" || d.country == country) ? "0.8" : "0.5"})
           .on("mouseover", function(d){
                 d3v4.select(this).style("fill", function(d,i)
                 {return highlightPicker(d.Country);})
+                .style("opacity", "0.8")
                 tooltip
                   .style("left", d3v4.event.pageX - 60 + "px")
                   .style("top", d3v4.event.pageY - (.9 * window.innerHeight) + y(d[phrase]) + 110 + "px")
@@ -108,19 +110,25 @@ var barData = null;
           .on("mouseout", function(d){
                 d3v4.select(this).style("fill", function(d,i)
                 {return colorPicker(d.Country);})
+                .style("opacity", function(d) { return (d.Country == "You" || d.country == country) ? "0.8" : "0.5"})
                 tooltip.style("display", "none");})
 
           .attr("height", function(d) { return height - y(d[phrase]); });
         console.log(x.bandwidth());
 
       function colorPicker(v){
-          if(v == "You") { return "#FF0000"}
-          if (v == country) { return "#ffeb00"}
-          else{ return "#4682b4";}
+          // if(v == "You") { return "#FF0000"}
+          // if (v == country) { return "#ffeb00"}
+          // else{ return "#4682b4";}
+          if (v == "You") { return '#bf0a0a' }
+          if (v == country) { return '#29388d' }
+          else{ return "#AAA";}
       }
       function highlightPicker(v){
-          if(v == "You") { return "#ff8900"}
-          if (v == country) { return "#ff8900"}
+          // if(v == "You") { return "#ff8900"}
+          // if (v == country) { return "#ff8900"}
+          if(v == "You") { return '#60853B' }
+          if (v == country) { return '#1F6A85' }
           else{ return "#00ff6c";}
       }
 

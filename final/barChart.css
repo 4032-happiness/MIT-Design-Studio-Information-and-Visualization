@@ -1,8 +1,8 @@
 
 .textBar {
-    font-size: 1px;       
+    font-size: 1px;
 }
-    
+
 .tooltipBar {
     position: absolute;
     display: none;
@@ -16,7 +16,7 @@
     border-radius: 8px;
     align-content: center;
 }
-    
+
 .tooltipBar:after {
     content: "";
     position: absolute;
@@ -27,9 +27,36 @@
     border-style: solid;
     border-color: rgba(85, 85, 85, 0.7) transparent transparent transparent;
 }
-    
+
 #bargraph {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
+    --ultra-light-gray: #efefef;
+    --light-gray: #888;
+    --medium-gray: #666;
+    --dark-gray: #333;
+}
+
+#bargraph path.domain {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#bargraph g.tick line {
+  stroke: var(--light-gray);
+  opacity: 0.5;
+}
+
+#bargraph g.tick text {
+  fill: var(--medium-gray);
+}
+
+#bargraph text {
+  fill: var(--medium-gray);
+}
+
+#bargraph .bar-axis text {
+  fill: var(--light-gray);
 }
