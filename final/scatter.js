@@ -5,17 +5,17 @@ var selected;
 var radius = 4;
 var dotcolor = "#225378";
 var inputcolor ="#EB7F00";
-console.log(document.documentElement.clientWidth);
-console.log(document.getElementById("scatter-plot").clientWidth);
 selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
-
-margin = {top: 20, right: 20, bottom: 30, left: 40};
+let scatterPlotMargin = { top: 10, right: 20, bottom: 30, left: 30 }
+var margin = {top: 20, right: 0, bottom: 0, left: 20};
     //var plot_width = document.getElementById("#scatter-plot-row").width;
     //console.log(plot_width);
-    width = document.documentElement.clientWidth +50;
-    height = 700 - margin.top - margin.bottom;
+width = document.documentElement.clientWidth - (margin.right + margin.left)
+height = d3.select('#scatter-container').node().clientHeight - (margin.top + margin.bottom)
+    //width = document.documentElement.clientWidth +50;
+    //height = 700 - margin.top - margin.bottom;
 // setup x, in this case the values in X axis are the calories
 // We need to define the range, scale and position
 var xValue = function(d) { return d["Life Ladder"];}, // data -> value

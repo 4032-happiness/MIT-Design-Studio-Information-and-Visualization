@@ -15,11 +15,11 @@
 
 <!-------------Scatter Plot------------------------>
 <div id = "scatter-container" class = "container">
-    <div id = "scatter-title-row" class = "row">
         <h2 id ="scatter-title">Hapiness By Country</h2>
-    </div>
-    <div id = "input-form-row" class = "row">
-        <div class = "col offset-md-1">
+        <p id="scatter-description">
+            This scatter plot visualizes the correlation between countries' average 2015-2017 hapiness rating and various related factors including GDP per capita, life expectancy, and perception of social support and generosity . By clicking on the labeled buttons, you can change the comparison value and view a different happiness trend. In addition, this plot allows you to see where your own happiness (the orange dot) falls in comparison to countries around the world. Maybe it will even allow you to get to the rood of your most recent mood....
+
+        </p>
             <div id ="input-form">
                 <div id = "button-row">
                    <div id="gdp-button" class="switch">Log GDP per Capita</div>
@@ -28,25 +28,16 @@
                     <div id="generosity-button" class="switch">Generosity</div>
                     <div id="positive-affect-button" class="switch">Positive Affect</div>
                     <div id="negative-affect-button" class="switch">Negative Affect</div>
-                    <!--<input id = "gdp-button" class =  "scatter-button" type="button" value="Log GDP per capita">
-                    <input id = "life-expectancy-button" class = "scatter-button" type="button" value="Healthy life expectancy at birth">
-                    <input id = "social-support-button" class = "scatter-button" type="button" value="Social Support">
-                    <input id = "generosity-button" class = "scatter-button" type="button" value="Generosity">
-                    <input id = "positive-affect-button" class = "scatter-button" type="button" value="Positive Affect">
-                    <input id = "negative-affect-button" class = "scatter-button" type="button" value="Negative Affect">-->
-
-                </div>
             </div>
         </div>
-    </div>
-
-
-</div>
-    <div id = "scatter-plot-row"  class = "row">
-        <div class = "col offset-md-2">
+    <div id ="scatter-plot-row" class = "row">
+        <div class = "col offset-md-3">
             <div id ="scatter-plot" class = "w-100"></div>
         </div>
     </div>
+</div>
+
+
 <!------------- ./Scatter Plot ---------------->
 
 <!------------- Line Plot ------------->
