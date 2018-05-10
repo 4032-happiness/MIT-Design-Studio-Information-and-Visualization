@@ -1,6 +1,6 @@
 var country = localStorage.getItem("country");
 var happiness = localStorage.getItem("happiness_ladder");
-var enjoyment = localStorage.getItem("enjoyment");
+var smile = localStorage.getItem("smile");
 var social_support = localStorage.getItem("social_support");
 var worry = localStorage.getItem("worry");
 var generosity = localStorage.getItem("generosity");
@@ -44,7 +44,7 @@ var barData = null;
          if (error) throw error;
          
           barData = data;
-          var you = {"Country": "You", "Happiness": "10", "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": enjoyment, "Negative Affect": worry, country: "You", frequency: generosity};
+          var you = {"Country": "You", "Happiness": happiness, "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": smile, "Negative Affect": worry, country: "You", frequency: phrase};
           data.unshift(you);
         drawBar(data);
     }  

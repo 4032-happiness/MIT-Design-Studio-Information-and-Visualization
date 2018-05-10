@@ -13,8 +13,8 @@
 
 var data2;
 var country = localStorage.getItem("country");
-var happiness = localStorage.getItem("happiness");
-var enjoyment = localStorage.getItem("enjoyment");
+var happiness = localStorage.getItem("happiness_ladder");
+var smile = localStorage.getItem("smile");
 var social_support = localStorage.getItem("social_support");
 var worry = localStorage.getItem("worry");
 var generosity = localStorage.getItem("generosity");
@@ -24,9 +24,10 @@ d3.csv("data.csv", function(error, data){
     if (error) {
         throw error;
     }
-    var you = {"Country": "You", "Happiness": hapiness, "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": enjoyment, "Negative Affect": worry};
+    var life = country;
+    var you = {"Country": "You", "Happiness": happiness, "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": smile, "Negative Affect": worry};
     data.unshift(you);
-    //console.log(data);
+    console.log(you);
     showRadar(data);
 });
 
