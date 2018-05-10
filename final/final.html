@@ -6,7 +6,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href="final.css" rel="stylesheet"/>
 <link href = "scatter.css" rel="stylesheet"/>
+<link href = "barChart.css" rel="stylesheet"/>
+<link rel="stylesheet" href="radarstyle.css">
 <link href="line.css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="radarstyle.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <div id ="header" class = "container">
     <div class ="row">
@@ -93,6 +97,121 @@
     </div>
 
 </div>
+    
+<!------------- Radar Chart ------------------------->
+<script src="radar.js"></script>
+<div id = "bar-container" class = "container">
+    <div class = "row">
+        <h2 id ="scatter-title">Radar Chart</h2>
+            <div id = radarChart>
+                  <style>
+                    body {
+                      padding: 20px;
+                    }
+                    .radar-chart .area {
+                      fill-opacity: 0.7;
+                    }
+                    .radar-chart.focus .area {
+                      fill-opacity: 0.3;
+                    }
+                    .radar-chart.focus .area.focused {
+                      fill-opacity: 0.9;
+                    }
+                  </style>
+                
+                <body onload = "doWhatIWant()">
+
+                <!--
+                    <textarea id="data" cols="60" rows="15">Country,Life Ladder,Healthy Life Expectancy/10,Social Support,Generosity,Positive Affect,Negative Affect
+                Afghanistan,3.6,5.2,5.3,1.8,5.0,3.7
+                Albania,4.6,6.9,6.4,2.6,6.7,3.3
+                </textarea>
+                -->
+
+                <!--
+                <body onload='doWhatIWant()'>
+                </body>
+                -->
+                <script type="text/javascript">
+                        function showRadar(data2){
+                            var data = [];
+                            var chart = RadarChart.chart();
+                            var w = 600,
+                              h = 600,
+                              headers = []
+                            data2.forEach(function(item, i){
+                                if (data2[i]["Country"] == "You" || data2[i]["Country"] == country) {
+                        
+                              newSeries = {};
+                              for(var j in item) {
+                                let v = item[j];
+                                if(j=="Country"){
+                                  newSeries.className = v;
+                                  newSeries.axes = [];
+                                }else{
+                                  newSeries.axes.push({"axis":[j], "value": [v]});//parseFloat(v)});
+                                }
+                              }          
+                              data.push(newSeries);  
+
+                                }
+                            });
+
+                            RadarChart.defaultConfig.radius = 4;
+                            RadarChart.defaultConfig.w = w;
+                            RadarChart.defaultConfig.h = h;
+                            RadarChart.draw("#chart-container", data);
+                            function animate(elem,time) {
+                                if( !elem) return;
+                                var to = elem.offsetTop;
+                                var from = window.scrollY;
+                                var start = new Date().getTime(),
+                                    timer = setInterval(function() {
+                                        var step = Math.min(1,(new Date().getTime()-start)/time);
+                                        window.scrollTo(0,(from+step*(to-from))+1);
+                                        if( step == 1){ clearInterval(timer);};
+                                    },25);
+                                    window.scrollTo(0,(from+1));
+                            }
+                            var divVal = document.getElementById('chart-container');
+                            animate(divVal,600);
+                        }
+                    
+                </script>
+
+
+                <div id="chart-container"></div>
+                <!--
+                <script type="text/javascript">
+                    //RadarChart.defaultConfig.levelTick = true;
+                  </script>
+                -->
+
+                </body>
+            </div>
+    </div>
+</div> 
+    
+    
+<!------------- Bar Chart ------------------------->
+<div id = "bar-container" class = "container">
+    <div class = "row">
+        <h2 id ="line-title">Bar Chart</h2>
+        <br>
+            <div id = "button-row">
+                <input id = "bar-generosity" type="button" value="Generosity">
+                <input id = "bar-happiness" type="button" value="Happiness">
+                <input id = "bar-social-support" type="button" value="Social Support">
+                <input id = "bar-positive-affect" type="button" value="Positive Affect">
+            </div>
+            <div id = bargraph>
+                <svg id = "barSVG"></svg>
+            </div>
+    </div>
+</div> 
+    
+    
+    
 <!-------------Scatter Plot------------------------>
 <div id = "scatter-container" class = "container">
     <div id = "scatter-title-row" class = "row">
@@ -164,6 +283,10 @@
 <script src="scatter.js"></script>
 <script src="line.js"></script>
 <script src="final.js"></script>
+<script src="barChart.js"></script>
+
+<script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+<script type="text/javascript" src="radar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>

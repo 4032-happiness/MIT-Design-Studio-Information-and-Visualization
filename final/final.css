@@ -13,3 +13,11 @@
 #scatter-container{
     page-break-before: always;
 }
+
+#bar-container{
+    margin-top:50px;
+    text-align: center;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows:20% 20% 60%;
+}

@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="radarstyle.css">
-<head>
-  <style>
-    body {
-      padding: 20px;
-    }
-    .radar-chart .area {
-      fill-opacity: 0.7;
-    }
-    .radar-chart.focus .area {
-      fill-opacity: 0.3;
-    }
-    .radar-chart.focus .area.focused {
-      fill-opacity: 0.9;
-    }
-  </style>
-
-  <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
-  <script type="text/javascript" src="radar.js"></script>
-
-
-  </head>
-  <body>
-    <h1>Radar Chart</h1>
-    <p>Type Your Country of Origin (Case Sensitive)</p>
-    <input type="text" id="input" placeholder="Enter Your Country...">
-    <button id="myBtn" onclick="doWhatIWant()">Enter</button>
-
-<!--
-    <textarea id="data" cols="60" rows="15">Country,Life Ladder,Healthy Life Expectancy/10,Social Support,Generosity,Positive Affect,Negative Affect
-Afghanistan,3.6,5.2,5.3,1.8,5.0,3.7
-Albania,4.6,6.9,6.4,2.6,6.7,3.3
-</textarea>
--->
-      
-<!--
-<body onload='doWhatIWant()'>
-</body>
--->
-<script type="text/javascript">
-    var input = document.getElementById("input");
+var input = document.getElementById("input");
     input.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
@@ -110,15 +66,3 @@ Albania,4.6,6.9,6.4,2.6,6.7,3.3
             animate(divVal,600);
         }
     }
-</script>
-
-
-<div id="chart-container"></div>
-<!--
-<script type="text/javascript">
-    //RadarChart.defaultConfig.levelTick = true;
-  </script>
--->
-
-</body>
-</html>
