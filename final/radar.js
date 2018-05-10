@@ -26,7 +26,7 @@ d3.csv("data.csv", function(error, data){
     }
     var you = {"Country": "You", "Happiness": happiness, "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": enjoyment, "Negative Affect": worry};
     data.unshift(you);
-    console.log(you)
+    //console.log(you)
     //console.log(data);
     showRadar(data);
 });

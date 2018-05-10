@@ -1,12 +1,12 @@
 var margin;
-var width;
-var height;
+var scatterWidth;
+var scatterHeight;
 var selected;
 var radius = 4;
 var dotcolor = "#225378";
 var inputcolor ="#EB7F00";
-console.log(document.documentElement.clientWidth);
-console.log(document.getElementById("scatter-plot").clientWidth);
+// console.log(document.documentElement.clientWidth);
+// console.log(document.getElementById("scatter-plot").clientWidth);
 selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
@@ -14,12 +14,12 @@ selected.classList.add("selected1");
 margin = {top: 20, right: 20, bottom: 30, left: 40};
     //var plot_width = document.getElementById("#scatter-plot-row").width;
     //console.log(plot_width);
-    width = document.documentElement.clientWidth +50;
-    height = 700 - margin.top - margin.bottom;
+    scatterWidth = document.getElementById("scatter-plot").clientWidth - margin.left - margin.right;
+    scatterHeight = document.getElementById("scatter-plot").clientHeight - margin.top - margin.bottom;
 // setup x, in this case the values in X axis are the calories
 // We need to define the range, scale and position
 var xValue = function(d) { return d["Life Ladder"];}, // data -> value
-    xScale = d3.scale.linear().range([0, width/2]), // value -> display
+    xScale = d3.scale.linear().range([0, scatterWidth]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 var inputHappiness=parseInt(localStorage.getItem("happiness"));
@@ -27,14 +27,12 @@ var inputComaparison = 7;
 var inputCountry = localStorage.getItem("country");
 var year = 2015;
 
-
-
 var color =dotcolor;
 var comparisonColumn = "Log GDP per capita";
 // setup y, in this case the values in X axis are the proteins
 // We need to define the range, scale and position
 var yValue = function(d) { return d[comparisonColumn];}, // data -> value
-    yScale = d3.scale.linear().range([height/2, 0]), // value -> display
+    yScale = d3.scale.linear().range([scatterHeight, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
     yAxis = d3.svg.axis().scale(yScale).orient("left");
 
@@ -45,14 +43,14 @@ var cValue = function(d){ return d.country;}
 // add the graph canvas to the body of the webpage
 // svg is similar to the 'ctx' element from our in class tutorial
 var svg = d3.select("#scatter-plot").append("svg") // here the canvas is just in the body
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", scatterWidth + margin.left + margin.right)
+    .attr("height", scatterHeight + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("#scatter-plot").append("div")
-    .attr("class", "tooltip")
+var scatterTooltip = d3.select("#scatter-plot").append("div")
+    .attr("class", "scatter-tooltip")
     .style("opacity", 0);
 
 
@@ -75,11 +73,11 @@ d3.csv("WHR2.csv", function(error, data) {
   // x-axis
   svg.append("g")
       .attr("class", "x scatter-axis")
-      .attr("transform", "translate(0," + (height/2) + ")")
+      .attr("transform", "translate(0," + 458 + ")")
       .call(xAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
-      .attr("x", width/2)
+      .attr("x", scatterWidth)
       .attr("y", -6)
       .style("text-anchor", "end")
       .text("Happiness Rating");
@@ -106,17 +104,16 @@ d3.csv("WHR2.csv", function(error, data) {
       .attr("cy", yMap)
       .style("fill", function(d) { return color;})//
       .on("mouseover", function(d) {
-          console.log(d)
-          tooltip.transition()
+          scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html(d["Country"] + "<br/> (" + xValue(d)
+          scatterTooltip.html(d["Country"] + "<br/> (" + xValue(d)
 	        + ", " + yValue(d) + ")")
-               .style("left", (event.clientX ) + "px")
-               .style("top", (event.clientY) + "px");
+               .style("left", (event.pageX + 50) + "px")
+               .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
-          tooltip.transition()
+          scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
       });
@@ -129,15 +126,15 @@ d3.csv("WHR2.csv", function(error, data) {
     .attr("cy",yScale(inputComaparison))
     .style("fill", inputcolor)
     .on("mouseover", function(d) {
-          tooltip.transition()
+          scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html("You" + "<br/> (" +inputHappiness.toString()+ ", " + inputComaparison + ")")
-               .style("left", (d3.event.pageX + 5) + "px")
-               .style("top", (d3.event.pageY - 28) + "px");
+          scatterTooltip.html("You" + "<br/> (" +inputHappiness.toString()+ ", " + inputComaparison + ")")
+            .style("left", (event.pageX + 50) + "px")
+            .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
-          tooltip.transition()
+          scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
       });
@@ -269,11 +266,11 @@ function updateData(){
 
   svg.append("g")
       .attr("class", "x scatter-axis")
-      .attr("transform", "translate(0," + (height/2) + ")")
+      .attr("transform", "translate(0," + scatterHeight + ")")
       .call(xAxis)
     .append("text")
       .attr("class", "label")
-      .attr("x", width/2)
+      .attr("x", scatterWidth)
       .attr("y", -6)
       .style("text-anchor", "end")
       .text("Happiness Rating");
@@ -300,16 +297,18 @@ function updateData(){
         .attr("cy", yMap)
         .style("fill", function(d) { return color;})// color(cValue(d));})
         .on("mouseover", function(d) {
-        tooltip.transition()
+        scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
-        tooltip.html(d["Country"] + "<br/> (" + xValue(d)
+        scatterTooltip.html(d["Country"] + "<br/> (" + xValue(d)
                      + ", " + yValue(d) + ")")
-            .style("left", (event.clientX) + "px")
-            .style("top", (event.clientY) + "px");
+            // .style("left", (event.clientX) + "px")
+            // .style("top", (event.clientY) + "px");
+            .style("left", (event.pageX + 5) + "px")
+            .style("top", (event.pageY - 28) + "px");
     })
         .on("mouseout", function(d) {
-        tooltip.transition()
+        scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);
     });
@@ -322,15 +321,15 @@ function updateData(){
         .attr("cy",yScale(inputComaparison))
         .style("fill", inputcolor)
         .on("mouseover", function(d) {
-        tooltip.transition()
+        scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
-        tooltip.html("You" + "<br/> (" +inputHappiness.toString()+ ", " + inputComaparison + ")")
-            .style("left", (event.clientX) + "px")
-            .style("top", (event.clientY) + "px");
+        scatterTooltip.html("You" + "<br/> (" +inputHappiness.toString()+ ", " + inputComaparison + ")")
+          .style("left", (event.pageX + 50) + "px")
+          .style("top", (event.pageY + 50) + "px");
     })
         .on("mouseout", function(d) {
-        tooltip.transition()
+        scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);
     });

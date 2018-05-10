@@ -13,24 +13,20 @@
   stroke: #ffffff;
 }
 
-.tooltip {
+.scatter-tooltip {
   position: absolute;
   width: 200px;
-  height: 28px;
   pointer-events: none;
+  background-color: #fff;
 }
 #scatter-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    /* margin-top:50px;
-    text-align: center;
-    display:grid;
-    grid-template-columns: 100%;
-    grid-template-rows:20% 20% 60%; */
-    --highlight-color: blue;
+  font-family: 'Open Sans', sans-serif;
+
+  --highlight-color: blue;
   --yours-color: red;
   --ultra-light-gray: #efefef;
   --light-gray: #888;
@@ -114,27 +110,30 @@ form{
   text-decoration: underline;
 }
 
-#scatter-plot-row {
+#scatter-plot {
   --ultra-light-gray: #efefef;
   --light-gray: #888;
   --medium-gray: #666;
   --dark-gray: #333;
+
+  width: 80vw;
+  height: 70vh;
 }
 
-#scatter-plot-row path.domain {
+#scatter-plot path.domain {
   stroke: var(--light-gray);
   opacity: 0.5;
 }
 
-#scatter-plot-row g.tick line {
+#scatter-plot g.tick line {
   stroke: var(--light-gray);
   opacity: 0.5;
 }
 
-#scatter-plot-row g.tick text {
+#scatter-plot g.tick text {
   fill: var(--medium-gray);
 }
 
-#scatter-plot-row text {
+#scatter-plot text {
   fill: var(--medium-gray);
 }
