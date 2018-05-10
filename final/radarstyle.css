@@ -9,7 +9,9 @@
 }
 .radar-chart .axis .legend {
   font-family: sans-serif;
+  color: red;
   font-size: 15px;
+  color: red;
 }
 .radar-chart .axis .legend.top {
   dy:1em;

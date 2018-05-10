@@ -136,7 +136,7 @@ var barData = null;
                 .style("opacity", "0.8")
                 tooltip
                   .style("left", d3v4.event.pageX - 60 + "px")
-                  .style("top", (.9 * window.innerHeight) + y(d[phrase]) + 520 + "px")
+                  .style("top", (.9 * window.innerHeight) + y(d[phrase]) + 550 + "px")
                   .style("display", "inline-block")
                   .html((d.country + "<br>" + d[phrase]))
           console.log((.9 * window.innerHeight) - y(d[phrase]));
