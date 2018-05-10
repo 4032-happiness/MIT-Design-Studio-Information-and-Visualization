@@ -136,7 +136,7 @@ var barData = null;
                 .style("opacity", "0.8")
                 tooltip
                   .style("left", d3v4.event.pageX - 60 + "px")
-                  .style("top", d3v4.event.pageY - (.9 * window.innerHeight) + y(d[phrase]) + 110 + "px")
+                  .style("top", (.9 * window.innerHeight) + y(d[phrase]) + 520 + "px")
                   .style("display", "inline-block")
                   .html((d.country + "<br>" + d[phrase]))
           console.log((.9 * window.innerHeight) - y(d[phrase]));
@@ -156,16 +156,16 @@ var barData = null;
           // if(v == "You") { return "#FF0000"}
           // if (v == country) { return "#ffeb00"}
           // else{ return "#4682b4";}
-          if (v == "You") { return '#bf0a0a' }
-          if (v == country) { return '#29388d' }
+          if (v == "You") { return 'red'}//'#bf0a0a }
+          if (v == country) { return 'blue'}//'#29388d' }
           else{ return "#AAA";}
       }
       function highlightPicker(v){
           // if(v == "You") { return "#ff8900"}
           // if (v == country) { return "#ff8900"}
-          if(v == "You") { return '#760606' }
-          if (v == country) { return '#19235a' }
-          else{ return "#777777";}
+          if(v == "You") { return '#bf0a0a'} //'#760606' }
+          if (v == country) { return '#29388d'}//'#19235a' }
+          else{ return "#666";}
       }
 
     //    data.forEach(function(item, i){
