@@ -15,7 +15,7 @@ var svgBar = d3v4.select("svg"),
     margin = {top: 20, right: 10, bottom: 150, left: 20},
     width = +svgBar.attr("width") - margin.left  - margin.right,
     height = +svgBar.attr("height") - margin.top - margin.bottom;
-    console.log(width, height);
+    //console.log(width, height);
 
 var x = d3v4.scaleBand().range([0, width]),
     y = d3v4.scaleLinear().rangeRound([height, 0]);
@@ -31,7 +31,7 @@ document.getElementById("bar-happiness").addEventListener("click",function(e){
     selected1.classList.remove("selected");
     selected1 = document.getElementById("bar-happiness");
     selected1.classList.add("selected");
-    console.log('called')
+    //console.log('called')
     phrase = "Happiness";
     drawBar(barData);
 });
@@ -39,7 +39,7 @@ document.getElementById("bar-social-support").addEventListener("click",function(
     selected1.classList.remove("selected");
     selected1 = document.getElementById("bar-social-support");
     selected1.classList.add("selected");
-    console.log('called')
+    //console.log('called')
     phrase = "Social Support";
     drawBar(barData);
 });
@@ -47,7 +47,7 @@ document.getElementById("bar-generosity").addEventListener("click",function(e){
     selected1.classList.remove("selected");
     selected1 = document.getElementById("bar-generosity");
     selected1.classList.add("selected");
-    console.log('called')
+    //console.log('called')
     phrase = "Generosity";
     drawBar(barData);
 });
@@ -55,7 +55,7 @@ document.getElementById("bar-positive-affect").addEventListener("click",function
     selected1.classList.remove("selected");
     selected1 = document.getElementById("bar-positive-affect");
     selected1.classList.add("selected");
-    console.log('called')
+    //console.log('called')
     phrase = "Positive Affect";
     drawBar(barData);
 });
@@ -63,7 +63,7 @@ document.getElementById("bar-negative-affect").addEventListener("click",function
     selected1.classList.remove("selected");
     selected1 = document.getElementById("bar-negative-affect");
     selected1.classList.add("selected");
-    console.log('called')
+    //console.log('called')
     phrase = "Negative Affect";
     drawBar(barData);
 });
@@ -94,7 +94,7 @@ var barData = null;
         })
       x.domain(data.map(function(d) { return d.country; }));
       y.domain([0, 10]);
-    console.log(data)
+    //console.log(data)
 
     g.selectAll('.bar-axis').remove()
     g.selectAll('.bar').remove()
@@ -148,7 +148,7 @@ var barData = null;
                 tooltip.style("display", "none");})
 
           .attr("height", function(d) { return height - y(d[phrase]); });
-        console.log(x.bandwidth());
+        //console.log(x.bandwidth());
 
       function colorPicker(v){
           // if(v == "You") { return "#FF0000"}

@@ -1,17 +1,18 @@
 .radar-chart .level {
-  stroke: grey;
-  stroke-width: 0.5;
+  stroke: #888;
+  opacity: 0.5;
+  stroke-width: 0.8;
 }
 
 .radar-chart .axis line {
-  stroke: grey;
+  stroke: #888;
+  opacity: 0.5;
   stroke-width: 1;
 }
 .radar-chart .axis .legend {
-  font-family: sans-serif;
-  color: red;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
-  color: red;
+  fill: #666;
 }
 .radar-chart .axis .legend.top {
   dy:1em;

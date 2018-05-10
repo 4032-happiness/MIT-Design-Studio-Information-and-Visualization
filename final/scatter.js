@@ -102,6 +102,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .attr("cy", yMap)
       .style("fill", function(d) { return color;})//
       .on("mouseover", function(d) {
+          d3.select(this).style('opacity', '0.5')
           scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
@@ -111,6 +112,7 @@ d3.csv("WHR2.csv", function(error, data) {
                .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
+          d3.select(this).style('opacity', '1')
           scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
@@ -124,6 +126,7 @@ d3.csv("WHR2.csv", function(error, data) {
     .attr("cy",yScale(inputComaparison))
     .style("fill", inputcolor)
     .on("mouseover", function(d) {
+          d3.select(this).style('opacity', '0.5')
           scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
@@ -132,6 +135,7 @@ d3.csv("WHR2.csv", function(error, data) {
             .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
+          d3.select(this).style('opacity', '1')
           scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
@@ -142,7 +146,7 @@ d3.csv("WHR2.csv", function(error, data) {
 });
 
 document.getElementById("generosity-button").addEventListener("click",function(e){
-    console.log(document.getElementById("generosity-button").value);
+    //console.log(document.getElementById("generosity-button").value);
     comparisonColumn = "Generosity";
     inputComaparison = 1;
     color = "#225378";//"#1695A3";
@@ -156,7 +160,7 @@ document.getElementById("generosity-button").addEventListener("click",function(e
 });
 
 document.getElementById("social-support-button").addEventListener("click",function(e){
-    console.log(document.getElementById("social-support-button").value);
+    //console.log(document.getElementById("social-support-button").value);
     comparisonColumn = "Social Support";
     color = dotcolor;//"#225378";
     inputComaparison = 1;
@@ -167,7 +171,7 @@ document.getElementById("social-support-button").addEventListener("click",functi
 });
 
 document.getElementById("life-expectancy-button").addEventListener("click",function(e){
-    console.log(document.getElementById("life-expectancy-button").value);
+    //console.log(document.getElementById("life-expectancy-button").value);
     comparisonColumn = "Healthy life expectancy at birth";
     color = dotcolor;//"#B4DC7F";
     inputComaparison = 60;
@@ -177,7 +181,7 @@ document.getElementById("life-expectancy-button").addEventListener("click",funct
     updateData();
 });
 document.getElementById("gdp-button").addEventListener("click",function(e){
-    console.log(document.getElementById("gdp-button").value);
+    //console.log(document.getElementById("gdp-button").value);
     comparisonColumn = "Log GDP per capita";
     inputComaparison = 4;
     color = dotcolor;//"#ACF0F2";
@@ -187,7 +191,7 @@ document.getElementById("gdp-button").addEventListener("click",function(e){
     updateData();
 });
 document.getElementById("positive-affect-button").addEventListener("click",function(e){
-    console.log(document.getElementById("positive-affect-button").value);
+    //console.log(document.getElementById("positive-affect-button").value);
     comparisonColumn ="Positive Affect";
     inputComaparison = 4;
     color = dotcolor;//"#ACF0F2";
@@ -197,7 +201,7 @@ document.getElementById("positive-affect-button").addEventListener("click",funct
     updateData();
 });
 document.getElementById("negative-affect-button").addEventListener("click",function(e){
-    console.log(document.getElementById("negative-affect-button").value);
+    //console.log(document.getElementById("negative-affect-button").value);
     comparisonColumn = "Negative Affect";
     inputComaparison = 4;
     color = dotcolor;//"#ACF0F2";
@@ -235,7 +239,7 @@ function updateData(){
     ///if (["Generosity","Social Support"].includes(comparisonColumn) ){
     if (comparisonColumn == "Generosity"){
         inputComaparison = localStorage.getItem("generosity");
-        console.log("generosity");
+        //console.log("generosity");
 
     }
     if (comparisonColumn == "Social Support"){
@@ -259,7 +263,7 @@ function updateData(){
 
     data.forEach(function (d){
         if (d.country ==inputCountry){
-            console.log(d[comparisonColumn]);
+            //console.log(d[comparisonColumn]);
 
         }
     })
@@ -297,6 +301,7 @@ function updateData(){
         .attr("cy", yMap)
         .style("fill", function(d) { return color;})// color(cValue(d));})
         .on("mouseover", function(d) {
+        d3.select(this).style('opacity', '0.5')
         scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
@@ -304,15 +309,16 @@ function updateData(){
                      + ", " + yValue(d) + ")")
             // .style("left", (event.clientX) + "px")
             // .style("top", (event.clientY) + "px");
-            .style("left", (event.pageX + 5) + "px")
-            .style("top", (event.pageY - 28) + "px");
+            .style("left", (event.pageX + 50) + "px")
+            .style("top", (event.pageY + 50) + "px");
     })
         .on("mouseout", function(d) {
+        d3.select(this).style('opacity', '1')
         scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);
     });
-    console.log(comparisonColumn, inputComaparison);
+    //console.log(comparisonColumn, inputComaparison);
     //add users point
     scattersvg.append("circle")
         .attr("class","dot input")
@@ -321,6 +327,7 @@ function updateData(){
         .attr("cy",yScale(inputComaparison))
         .style("fill", inputcolor)
         .on("mouseover", function(d) {
+        d3.select(this).style('opacity', '0.5')
         scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
@@ -329,6 +336,7 @@ function updateData(){
           .style("top", (event.pageY + 50) + "px");
     })
         .on("mouseout", function(d) {
+        d3.select(this).style('opacity', '1')
         scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);
