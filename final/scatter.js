@@ -149,7 +149,7 @@ document.getElementById("generosity-button").addEventListener("click",function(e
     //console.log(document.getElementById("generosity-button").value);
     comparisonColumn = "Generosity";
     inputComaparison = 1;
-    color = "#225378";//"#1695A3";
+    color = dotcolor;//"#1695A3";
     selected.classList.remove("selected");
     selected = document.getElementById("generosity-button");
     selected.classList.add("selected");

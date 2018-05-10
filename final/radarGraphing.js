@@ -39,30 +39,30 @@ var input = document.getElementById("input");
                 }else{
                   newSeries.axes.push({"axis":[j], "value": [v]});//parseFloat(v)});
                 }
-              }          
+              }
               data.push(newSeries);
-              console.log(newSeries);   
-            
+              console.log(newSeries);
+
                 }
             });
-            
+
             RadarChart.defaultConfig.radius = 4;
             RadarChart.defaultConfig.w = w;
             RadarChart.defaultConfig.h = h;
             RadarChart.draw("#chart-container", data);
-            function animate(elem,time) {
-                if( !elem) return;
-                var to = elem.offsetTop;
-                var from = window.scrollY;
-                var start = new Date().getTime(),
-                    timer = setInterval(function() {
-                        var step = Math.min(1,(new Date().getTime()-start)/time);
-                        window.scrollTo(0,(from+step*(to-from))+1);
-                        if( step == 1){ clearInterval(timer);};
-                    },25);
-                    window.scrollTo(0,(from+1));
-            }
-            var divVal = document.getElementById('chart-container');
-            animate(divVal,600);
+            // function animate(elem,time) {
+            //     if( !elem) return;
+            //     var to = elem.offsetTop;
+            //     var from = window.scrollY;
+            //     var start = new Date().getTime(),
+            //         timer = setInterval(function() {
+            //             var step = Math.min(1,(new Date().getTime()-start)/time);
+            //             window.scrollTo(0,(from+step*(to-from))+1);
+            //             if( step == 1){ clearInterval(timer);};
+            //         },25);
+            //         window.scrollTo(0,(from+1));
+            // }
+            // var divVal = document.getElementById('chart-container');
+            // animate(divVal,600);
         }
     }
