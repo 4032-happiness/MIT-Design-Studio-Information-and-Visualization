@@ -42,8 +42,6 @@
   --table-pad-right: 16px
 }
 #scatter-title{
-    grid-column-start:1;
-    grid-row-start: 1;
     margin-bottom:20px;
     font-size: 26px;
 
@@ -51,10 +49,7 @@
 #input-form{
     grid-row-start:2;
 }
-#scatter-plot{
-    grid-column-start: 1;
-    grid-row-start:3;
-}
+
 .input{
     z-index: 100000;
 }
@@ -65,30 +60,11 @@ form{
   margin:0 auto;
 }
 
-
-
-/* #scatter-container p{
+#scatter-description{
   width:100%;
-  text-align:center;
-  color:white;
-  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', Roboto, Arial, Sans-serif;
-  font-size:32px;
-  margin-top:30px;
-} */
-
-/*.scatter-button{
-    background: white ;
-    border-radius: 3px;
-    color:#EB7F00;
-    border: 1px solid #EB7F00;
+  color:var(--med-grey);
 }
 
-.selected1{
-    background: #EB7F00 ;
-    border-radius: 3px;
-    color:white;
-    border: 1px solid #EB7F00;
-}*/
 
 #button-row {
   margin-bottom: 10px;

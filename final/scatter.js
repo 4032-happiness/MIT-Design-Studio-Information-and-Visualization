@@ -5,17 +5,15 @@ var selected;
 var radius = 4;
 var dotcolor = "#225378";
 var inputcolor ="#EB7F00";
-// console.log(document.documentElement.clientWidth);
-// console.log(document.getElementById("scatter-plot").clientWidth);
 selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
-
-margin = {top: 20, right: 20, bottom: 30, left: 40};
+let scatterPlotMargin = { top: 10, right: 20, bottom: 30, left: 30 }
+var margin = {top: 20, right: 0, bottom: 0, left: 20};
     //var plot_width = document.getElementById("#scatter-plot-row").width;
     //console.log(plot_width);
-    scatterWidth = document.getElementById("scatter-plot").clientWidth - margin.left - margin.right;
-    scatterHeight = document.getElementById("scatter-plot").clientHeight - margin.top - margin.bottom;
+    scatterWidth = document.getElementById("scatter-plot").clientWidth - scatterPlotMargin.left - scatterPlotMargin.right;
+    scatterHeight = document.getElementById("scatter-plot").clientHeight - scatterPlotMargin.top - scatterPlotMargin.bottom;
 // setup x, in this case the values in X axis are the calories
 // We need to define the range, scale and position
 var xValue = function(d) { return d["Life Ladder"];}, // data -> value
@@ -42,11 +40,11 @@ var cValue = function(d){ return d.country;}
 
 // add the graph canvas to the body of the webpage
 // svg is similar to the 'ctx' element from our in class tutorial
-var svg = d3.select("#scatter-plot").append("svg") // here the canvas is just in the body
-    .attr("width", scatterWidth + margin.left + margin.right)
-    .attr("height", scatterHeight + margin.top + margin.bottom)
+var scattersvg = d3.select("#scatter-plot").append("svg") // here the canvas is just in the body
+    .attr("width", scatterWidth + scatterPlotMargin.left + scatterPlotMargin.right)
+    .attr("height", scatterHeight + scatterPlotMargin.top + scatterPlotMargin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + scatterPlotMargin.left + "," + scatterPlotMargin.top + ")");
 
 // add the tooltip area to the webpage
 var scatterTooltip = d3.select("#scatter-plot").append("div")
@@ -71,9 +69,9 @@ d3.csv("WHR2.csv", function(error, data) {
   yScale.domain([Math.min(d3.min(data, yValue), inputComaparison)-0.5, Math.max(d3.max(data, yValue), inputComaparison)+0.5]);
 
   // x-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "x scatter-axis")
-      .attr("transform", "translate(0," + 458 + ")")
+      .attr("transform", "translate(0," + scatterHeight + ")")
       .call(xAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
@@ -83,7 +81,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .text("Happiness Rating");
 
   // y-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "y scatter-axis")
       .call(yAxis.outerTickSize(0))
     .append("text")
@@ -95,7 +93,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .text(comparisonColumn);
 
   // draw dots
-  svg.selectAll(".dot")
+  scattersvg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
@@ -119,7 +117,7 @@ d3.csv("WHR2.csv", function(error, data) {
       });
 
     //add users point
-    svg.append("circle")
+    scattersvg.append("circle")
     .attr("class","dot input")
     .attr("r",radius)
     .attr("cx",xScale(inputHappiness))
@@ -218,20 +216,11 @@ function updateData(){
         d[comparisonColumn] = +d[comparisonColumn];
     });
 
-     svg.selectAll(".dot").remove();
-     d3.selectAll('.scatter-axis').remove();
-
-     if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
-        data.forEach(function (d){
-         if (d.country ==inputCountry){
-             inputComaparison = d[comparisonColumn];
-             return d[comparisonColumn];
-
-         }
-             return 0;
-         })
-       }
-
+     scattersvg.selectAll(".dot").remove();
+     d3.selectAll('.axis').remove();
+    //rescale domain and range
+    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
        data.forEach(function (d){
         if (d.country ==inputCountry){
@@ -275,7 +264,7 @@ function updateData(){
         }
     })
 
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "x scatter-axis")
       .attr("transform", "translate(0," + scatterHeight + ")")
       .call(xAxis)
@@ -287,7 +276,7 @@ function updateData(){
       .text("Happiness Rating");
 
   // y-axis
-  svg.append("g")
+  scattersvg.append("g")
       .attr("class", "y scatter-axis")
       .call(yAxis)
     .append("text")
@@ -299,7 +288,7 @@ function updateData(){
       .text(comparisonColumn);
 
     // draw dots
-    svg.selectAll(".dot")
+    scattersvg.selectAll(".dot")
         .data(data)
         .enter().append("circle")
         .attr("class", "dot")
@@ -325,7 +314,7 @@ function updateData(){
     });
     console.log(comparisonColumn, inputComaparison);
     //add users point
-    svg.append("circle")
+    scattersvg.append("circle")
         .attr("class","dot input")
         .attr("r",radius)
         .attr("cx",xScale(inputHappiness))
