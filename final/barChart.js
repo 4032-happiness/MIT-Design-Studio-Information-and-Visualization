@@ -147,9 +147,9 @@ var barData = null;
       function highlightPicker(v){
           // if(v == "You") { return "#ff8900"}
           // if (v == country) { return "#ff8900"}
-          if(v == "You") { return '#60853B' }
-          if (v == country) { return '#1F6A85' }
-          else{ return "#00ff6c";}
+          if(v == "You") { return '#760606' }
+          if (v == country) { return '#19235a' }
+          else{ return "#777777";}
       }
 
     //    data.forEach(function(item, i){
