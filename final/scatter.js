@@ -67,8 +67,8 @@ d3.csv("WHR2.csv", function(error, data) {
   });
 
   // don't want dots overlapping axis, so add in buffer to data domain
-  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+  xScale.domain([Math.min(d3.min(data, xValue), inputHappiness)-0.5, Math.max(d3.max(data, xValue), inputHappiness)+0.5]);
+  yScale.domain([Math.min(d3.min(data, yValue), inputComaparison)-0.5, Math.max(d3.max(data, yValue), inputComaparison)+0.5]);
 
   // x-axis
   svg.append("g")
@@ -220,9 +220,18 @@ function updateData(){
 
      svg.selectAll(".dot").remove();
      d3.selectAll('.scatter-axis').remove();
-    //rescale domain and range
-    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+
+     if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
+        data.forEach(function (d){
+         if (d.country ==inputCountry){
+             inputComaparison = d[comparisonColumn];
+             return d[comparisonColumn];
+
+         }
+             return 0;
+         })
+       }
+
     if (["Log GDP per capita","Healthy life expectancy at birth","Generosity","Social Support"].includes(comparisonColumn) ){
        data.forEach(function (d){
         if (d.country ==inputCountry){
@@ -233,6 +242,7 @@ function updateData(){
             return 0;
         })
       }
+
     ///if (["Generosity","Social Support"].includes(comparisonColumn) ){
     if (comparisonColumn == "Generosity"){
         inputComaparison = localStorage.getItem("generosity");
@@ -254,8 +264,9 @@ function updateData(){
 
     }
 
-
-
+    //rescale domain and range
+    xScale.domain([Math.min(d3.min(data, xValue), inputHappiness)-0.5, Math.max(d3.max(data, xValue), inputHappiness)+0.5]);
+    yScale.domain([Math.min(d3.min(data, yValue), inputComaparison)-0.5, Math.max(d3.max(data, yValue), inputComaparison)+0.5]);
 
     data.forEach(function (d){
         if (d.country ==inputCountry){
