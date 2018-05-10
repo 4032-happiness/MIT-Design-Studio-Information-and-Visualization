@@ -1,6 +1,6 @@
 var country = localStorage.getItem("country");
 var happiness = localStorage.getItem("happiness_ladder");
-var smile = localStorage.getItem("smile");
+var smile = localStorage.getItem("positive_affect");
 var social_support = localStorage.getItem("social_support");
 var worry = localStorage.getItem("negative_affect");
 var generosity = localStorage.getItem("generosity");
@@ -136,11 +136,9 @@ var barData = null;
                 .style("opacity", "0.8")
                 tooltip
                   .style("left", d3v4.event.pageX - 60 + "px")
-                  .style("top", d3v4.event.pageY - (.9 * window.innerHeight) + y(d[phrase]) + 110 + "px")
+                  .style("top", ($('#barSVG').position().top + y(d[phrase]) - 50) + "px")
                   .style("display", "inline-block")
                   .html((d.country + "<br>" + d[phrase]))
-          console.log((.9 * window.innerHeight) - y(d[phrase]));
-          console.log(y(d[phrase]))
             })
 
           .on("mouseout", function(d){
