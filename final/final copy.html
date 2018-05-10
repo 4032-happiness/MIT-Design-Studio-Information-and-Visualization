@@ -14,10 +14,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <div id="header" class="container">
   <h1 class="title">Rank Your Happiness</h1>
-  <p class="description">The World Happiness Report is a survey on global happiness that spans eleven years. The report ranks 156 countries around the world by happiness, collecting data from surveys sent out to thousands of citizens of each country included. This visualization provides four charts that allow you to get a better understanding of happiness trends across the world and overtime. Additionally, these charts allow you to get a better sense of how your happiness stacks up with others in your country and the world at large. The survey that you just completed was an abbreviated take on the survey sent out as part of the World Happiness report, that allows us to graph your happiness alongside data taken from the report.
-    <br/>
-    <i>Data from <a href="http://worldhappiness.report/ed/2018/" target="_blank">World Happiness Report</a></i>
-  </p>
+  <p class="description">The World Happiness Report is a survey on global happiness that spans eleven years. The report ranks 156 countries around the world by happiness, collecting data from surveys sent out to thousands of citizens of each country included. This visualization provides four charts that allow you to get a better understanding of happiness trends across the world and overtime. Additionally, these charts allow you to get a better sense of how your happiness stacks up with others in your country and the world at large. The survey that you just completed was an abbreviated take on the survey sent out as part of the World Happiness report, that allows us to graph your happiness alongside data taken from the report. </p>
 </div>
 
 <!------------- Radar Chart ------------------------->
@@ -32,20 +29,43 @@
 
 
 <!------------- Bar Chart ------------------------->
+<<<<<<< HEAD
+<div id = "scatter-container" class = "container">
+    <div class = "row">
+        <h2 id ="bar-title">Bar Chart</h2>
+        <br>
+        <div id ="input-form">
+            <div id = "button-row">
+                <div id = "bar-happiness" class  = "switch">Happiness</div>
+                <div id = "bar-social-support" class  = "switch">Social Support</div>
+                <div id = "bar-generosity" class  = "switch">Generosity</div>
+                <div id = "bar-positive-affect" class  = "switch">Positive Affect</div>
+                <div id = "bar-negative-affect" class  = "switch">Negative Affect</div>
+            </div>
+            <div id = bargraph>
+                <svg id = "barSVG"></svg>
+            </div>
+        </div>
+    </div>
+</div> 
+    
+    
+    
+=======
 <div id = "bar-container" class = "container">
   <h2 id ="bar-title">Bar Chart</h2>
   <p id="bar-description">Bar chart description goes here...</p>
-      <div id = "button-row">
-        <div id = "bar-happiness" class  = "switch">Happiness</div>
-        <div id = "bar-social-support" class  = "switch">Social Support</div>
-        <div id = "bar-generosity" class  = "switch">Generosity</div>
-        <div id = "bar-positive-affect" class  = "switch">Positive Affect</div>
-        <div id = "bar-negative-affect" class  = "switch">Negative Affect</div>
-    </div>
+  <div id = "button-row">
+      <input id = "bar-generosity" type="button" value="Generosity">
+      <input id = "bar-happiness" type="button" value="Happiness">
+      <input id = "bar-social-support" type="button" value="Social Support">
+      <input id = "bar-positive-affect" type="button" value="Positive Affect">
+  </div>
   <div id = "bargraph">
       <svg id = "barSVG"></svg>
   </div>
 </div>
+>>>>>>> ea299938ec6c6ef9d543e9c0eb8aa99674c6d7a0
 
 <!-------------Scatter Plot------------------------>
 <div id = "scatter-container" class = "container">

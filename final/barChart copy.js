@@ -2,7 +2,7 @@ var country = localStorage.getItem("country");
 var happiness = localStorage.getItem("happiness_ladder");
 var smile = localStorage.getItem("smile");
 var social_support = localStorage.getItem("social_support");
-var worry = localStorage.getItem("negative_affect");
+var worry = localStorage.getItem("worry");
 var generosity = localStorage.getItem("generosity");
 var life_expectancy = localStorage.getItem("life_expectancy");
 
@@ -56,7 +56,11 @@ var barData = null;
 
 /////////////////////////////////////////////////////////
 
-    d3v4.csv("data2.csv", function(d) {
+<<<<<<< HEAD
+    d3v4.csv("data2.csv", function(d) {   
+=======
+    d3v4.csv("data.csv", function(d) {
+>>>>>>> ea299938ec6c6ef9d543e9c0eb8aa99674c6d7a0
       d.country = d['Country'];
       d.frequency = +d[phrase];
       return d;
@@ -64,14 +68,19 @@ var barData = null;
          if (error) throw error;
 
           barData = data;
-          var you = {"Country": "You", "Happiness": happiness, "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": smile, "Negative Affect": worry, country: "You", frequency: phrase};
+          var you = {"Country": "You", "Happiness": happiness, "Social Support": social_support, "Generosity": generosity, "Positive Affect": smile, "Negative Affect": worry, country: "You", frequency: phrase};
           data.unshift(you);
         drawBar(data);
     }
     );
 
      function drawBar (data) {
+<<<<<<< HEAD
+        var t = d3.transition()
+        .duration(750);
+=======
 
+>>>>>>> ea299938ec6c6ef9d543e9c0eb8aa99674c6d7a0
 
         data.sort(function(a,b){
             return a[phrase] - b[phrase];
@@ -82,6 +91,7 @@ var barData = null;
 
     g.selectAll('.bar-axis').remove()
     g.selectAll('.bar').remove()
+
 
       g.append("g")
           .attr("class", "bar-axis axis--x")
@@ -107,6 +117,7 @@ var barData = null;
 
       g.selectAll(".bar")
           .data(data)
+          //.transition()
           .enter().append("rect")
           .attr("class", "bar")
           .attr("fill", function(d){return colorPicker(d.Country);})
