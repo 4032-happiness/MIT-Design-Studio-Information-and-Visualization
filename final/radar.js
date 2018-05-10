@@ -239,6 +239,22 @@ var RadarChart = {
             .text(function(d) { return d.name; })
             .attr('x', function(d, i){ return d.xOffset+ (cfg.w/2- radius2)+getHorizontalPosition(i, radius2, cfg.factorLegend); })
             .attr('y', function(d, i){ return d.yOffset+ (cfg.h/2-radius2)+getVerticalPosition(i, radius2, cfg.factorLegend); });
+//            .on("mouseover", function(d){
+//                d3.select(this).style("fill", function(d,i)
+//                {return "pink";})
+//                .style("opacity", "0.8")
+//                tooltip
+//                  .style("left", d3.event.pageX + "px")
+//                  .style("top", (d3.event.pageX + "px"))
+//                  .style("display", "inline-block")
+//                  .html(("pokemon"))
+//            })
+//
+//          .on("mouseout", function(d){
+//                d3.select(this).style("fill", function(d,i)
+//                {return "blue";})
+//                .style("opacity", function(d) { return (d.Country == "You" || d.country == country) ? "0.8" : "0.5"})
+//                tooltip.style("display", "none");});
           }
         }
 
