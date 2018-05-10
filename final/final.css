@@ -4,7 +4,7 @@ body {
 }
 
 p {
-  max-width: 800px;
+  max-width: 900px;
   color: #333;
 }
 
@@ -16,10 +16,13 @@ p {
 }
 
 /* Form Styles */
-#form-body {
+#form-body, #form-header {
   padding: 0;
   max-width: 800px;
   font-family: 'Open Sans', sans-serif;
+}
+#form-header h1 {
+  justify-content: center;
 }
 
 .form-section {

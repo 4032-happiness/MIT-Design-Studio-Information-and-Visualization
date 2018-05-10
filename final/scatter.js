@@ -217,7 +217,7 @@ function updateData(){
     });
 
      scattersvg.selectAll(".dot").remove();
-     d3.selectAll('.axis').remove();
+     d3.selectAll('.scatter-axis').remove();
     //rescale domain and range
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
