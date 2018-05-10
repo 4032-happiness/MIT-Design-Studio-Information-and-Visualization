@@ -48,4 +48,18 @@ p {
   background-color: #0069d9;
   border-color: #0062cc;
 }
+<<<<<<< HEAD
+#scatter-container{
+    page-break-before: always;
+}
+
+#bar-container{
+    margin-top:50px;
+    text-align: center;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows:20% 20% 60%;
+}
+=======
 /* ... Form Styles */
+>>>>>>> 4bc2ff11ff710251fc9143a54dd30fd284505b4d

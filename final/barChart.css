@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-    
+
 .textBar {
     font-size: 1px;       
 }
@@ -36,11 +33,3 @@
     margin-right: auto;
     text-align: center;
 }
-
-
-</style>
-<div id = bargraph>
-<svg id = "barSVG"></svg>
-</div>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="barChart.js"></script>
