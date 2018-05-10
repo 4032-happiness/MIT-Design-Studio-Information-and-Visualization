@@ -1,4 +1,4 @@
-let linePlotMargin = { top: 10, right: 20, bottom: 30, left: 30 }
+let linePlotMargin = { top: 10, right: 20, bottom: 30, left: 50 }
 let linePlotWidth = d3v4.select('#line-plot').node().clientWidth - (linePlotMargin.right + linePlotMargin.left)
 let linePlotHeight = d3v4.select('#line-plot').node().clientHeight - (linePlotMargin.top + linePlotMargin.bottom)
 let linePlotTableHeight = d3v4.select('#line-table').node().clientHeight
@@ -133,6 +133,23 @@ function drawLinePlot(countries) {
     .call(
       d3v4.axisLeft(yScale)
         .tickSizeOuter(0))
+
+  // Add the X Axis label
+  linePlot.append('text')
+    .attr('class', 'axis-title')
+    .attr('transform', `translate(${linePlotWidth / 2}, ${linePlotHeight + linePlotMargin.top + 20})`)
+    .style('text-anchor', 'middle')
+    .text('Year')
+
+  // Add the Y Axis label
+  linePlot.append('text')
+    .attr('class', 'axis-title')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', -linePlotMargin.left)
+    .attr('x', -(linePlotHeight / 2))
+    .attr('dy', '1em')
+    .style('text-anchor', 'middle')
+    .text('Happiness')
 }
 
 function drawlinePlotLine(data, line, color, width, opacity) {

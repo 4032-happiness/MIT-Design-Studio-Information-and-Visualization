@@ -12,22 +12,12 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <link rel="stylesheet" href="radarstyle.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<div id ="header" class = "container">
-    <div class ="row">
-            <div class ="col text-center ">
-                <h1 id ="form-title" > Rank Your Happiness</h1>
-            </div>
-
-    </div>
- </div>
-<div id ="project-description" class = "container">
-    <div class = "row">
-        <div class = "col offset-md-4">
-            <h4>Project description can go here........</h4>
-        </div>
-    </div>
+<div id="header" class="container">
+  <h1 class="title">Rank Your Happiness</h1>
+  <p class="description">Project description can go here........</p>
 </div>
 
+<<<<<<< HEAD
 <div id ="form">
     <div id ="form-body" class = "container">
 
@@ -212,41 +202,35 @@
     
     
     
+=======
+>>>>>>> 4bc2ff11ff710251fc9143a54dd30fd284505b4d
 <!-------------Scatter Plot------------------------>
 <div id = "scatter-container" class = "container">
     <div id = "scatter-title-row" class = "row">
-        <h2 id ="scatter-title">Hapiness Scatter</h2>
+        <h2 id ="scatter-title">Hapiness By Country</h2>
     </div>
     <div id = "input-form-row" class = "row">
-        <div class = "col offset-md-2">
+        <div class = "col offset-md-1">
             <div id ="input-form">
                 <div id = "button-row">
-                    <input id = "gdp-button" type="button" value="Log GDP per capita">
-                    <input id = "life-expectancy-button" type="button" value="Healthy life expectancy at birth">
-                    <input id = "social-support-button" type="button" value="Social support">
-                    <input id = "generosity-button" type="button" value="Generosity">
+                   <div id="gdp-button" class="switch">Log GDP per Capita</div>
+                   <div id="life-expectancy-button" class="switch">Healthy Life Expectancy at Birth</div>
+                    <div id="social-support-button" class="switch">Social Support</div>
+                    <div id="generosity-button" class="switch">Generosity</div>
+                    <div id="positive-affect-button" class="switch">Positive Affect</div>
+                    <div id="negative-affect-button" class="switch">Negative Affect</div>
+                    <!--<input id = "gdp-button" class =  "scatter-button" type="button" value="Log GDP per capita">
+                    <input id = "life-expectancy-button" class = "scatter-button" type="button" value="Healthy life expectancy at birth">
+                    <input id = "social-support-button" class = "scatter-button" type="button" value="Social Support">
+                    <input id = "generosity-button" class = "scatter-button" type="button" value="Generosity">
+                    <input id = "positive-affect-button" class = "scatter-button" type="button" value="Positive Affect">
+                    <input id = "negative-affect-button" class = "scatter-button" type="button" value="Negative Affect">-->
+
                 </div>
             </div>
         </div>
     </div>
-    <div class = "row">
-        <div class = "col md-offset-3">
-            Year:
-        </div>
-    </div>
-    <div id = "year-slider-row" class = "row">
 
-        <div class = "col md-offset-3">
-            <input id = "year-slider" type="range" min="2009" max="2017" step="1">
-        </div>
-    </div>
-    <div class = "row">
-        <div class = "col md-offset-3">
-            <div id = "year-value">
-
-            </div>
-        </div>
-    </div>
 
 </div>
     <div id = "scatter-plot-row"  class = "row">
@@ -254,10 +238,19 @@
             <div id ="scatter-plot" class = "w-100"></div>
         </div>
     </div>
+<!------------- ./Scatter Plot ---------------->
 
-<!------------- Scatter Plot ------------->
-  <div id="line-container">
-    <div id="line-title">Happiness Over Time</div>
+<!------------- Line Plot ------------->
+  <div id="line-container" class="container">
+    <h2 id="line-title">Happiness Over Time</h2>
+    <p id="line-description">
+      This line chart visualizes the happiness index by country between 2006 to 2017.
+      Line corresponding to your country is highlighted red.
+      You can also select an option below to highlight 10 countries that are happiest,
+      least happiest, or most similar to yours.
+      The table lists the countries, ranked by their average happiness index over the years.
+      Click on the country name to highlight the corresponding line.
+    </p>
     <div id="line-switches">
       <div id="line-switch-highest" class="switch">10 Happiest Countries</div>
       <div id="line-switch-closest" class="switch">10 Countries Likes Yours</div>
@@ -273,6 +266,7 @@
       </div>
     </div>
   </div>
+<!------------- /Line Plot ------------->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v4.min.js"></script>
@@ -282,11 +276,14 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="scatter.js"></script>
 <script src="line.js"></script>
+<<<<<<< HEAD
 <script src="final.js"></script>
 <script src="barChart.js"></script>
 
 <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
 <script type="text/javascript" src="radar.js"></script>
+=======
+>>>>>>> 4bc2ff11ff710251fc9143a54dd30fd284505b4d
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>

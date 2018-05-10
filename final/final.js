@@ -8,7 +8,7 @@ var generosity;
 
 
 
-window.onload = function () { 
+window.onload = function () {
 
        setCountryDropDown();
        document.getElementById("submit").addEventListener('click', function(event){
@@ -16,35 +16,50 @@ window.onload = function () {
             createEvent(event);
          }
        });
-    
- }
-var sheet = document.createElement('style'),  
-  $rangeInput = $('.range input'),
-  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
 
-document.body.appendChild(sheet);
+ }
+
+
 
 
 
 function createEvent(e){
-    happiness = document.getElementById("happiness_ladder").value;
+    
+    happiness = getRadioValue("happiness_ladder");
+    console.log(happiness);
     localStorage.setItem("happiness",happiness);
+    
     country = document.getElementById("country").value;
     localStorage.setItem("country",country);
-    positive_affect = document.getElementById("smile").value;
-    localStorage.setItem("smile",smile);
-    negative_affect = document.getElementById("worry").value;
-    localStorage.setItem("worry",worry);
-    social_support = document.getElementById("social_support").value;
+    
+    positive_affect = getRadioValue("smile");//document.getElementById("smile").value;
+    localStorage.setItem("positive_affect",positive_affect);
+    
+    negative_affect = getRadioValue("worry");//document.getElementById("worry").value;
+    localStorage.setItem("negative_affect",negative_affect);
+    
+    social_support = getRadioValue("social_support");//document.getElementById("social_support").value;
     localStorage.setItem("social_support",social_support);
-    generosity =document.getElementById("generosity").value;
+    
+    generosity =getRadioValue("generosity");//document.getElementById("generosity").value;
     localStorage.setItem("generosity",generosity);
     console.log(generosity);
     window.location.href='final.html';
   }
 
+function getRadioValue(name){
+    var radios = document.getElementsByName(name);
+    var value;
+    for(var i = 0; i < radios.length; i++){
+        if(radios[i].checked){
+            value = radios[i].value;
+        }
+    }
+    return value;
+}   
+
+
 function setCountryDropDown(){
-    
     var dropdown = document.getElementById("country");
     d3.csv("WHR.csv", function(data) {
     var countries = [];
@@ -59,11 +74,11 @@ function setCountryDropDown(){
             opt.innerHTML = countries[i];
             dropdown.appendChild(opt);
         }
-        
-        
+
+
     }
     });
-    
+
 }
 
 function validate_form(){
