@@ -22,52 +22,7 @@
 <div id="radar-container" class="container">
   <h2 id="radar-title">Radar Chart</h2>
   <p id="radar-description">Radar chart description goes here...</p>
-  <div id="radarChart" onload="doWhatIWant()">
-    <script type="text/javascript">
-            function showRadar(data2){
-                var data = [];
-                var chart = RadarChart.chart();
-                var w = 600,
-                  h = 600,
-                  headers = []
-                data2.forEach(function(item, i){
-                    if (data2[i]["Country"] == "You" || data2[i]["Country"] == country) {
-
-                  newSeries = {};
-                  for(var j in item) {
-                    let v = item[j];
-                    if(j=="Country"){
-                      newSeries.className = v;
-                      newSeries.axes = [];
-                    }else{
-                      newSeries.axes.push({"axis":[j], "value": [v]});//parseFloat(v)});
-                    }
-                  }
-                  data.push(newSeries);
-
-                    }
-                });
-
-                RadarChart.defaultConfig.radius = 4;
-                RadarChart.defaultConfig.w = w;
-                RadarChart.defaultConfig.h = h;
-                RadarChart.draw("#chart-container", data);
-                function animate(elem,time) {
-                    if( !elem) return;
-                    var to = elem.offsetTop;
-                    var from = window.scrollY;
-                    var start = new Date().getTime(),
-                        timer = setInterval(function() {
-                            var step = Math.min(1,(new Date().getTime()-start)/time);
-                            window.scrollTo(0,(from+step*(to-from))+1);
-                            if( step == 1){ clearInterval(timer);};
-                        },25);
-                        window.scrollTo(0,(from+1));
-                }
-                var divVal = document.getElementById('chart-container');
-                animate(divVal,600);
-            }
-    </script>
+  <div id="radarChart">
     <div id="chart-container"></div>
   </div>
 </div>
@@ -159,9 +114,53 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="scatter.js"></script>
 <script src="line.js"></script>
-<script src="final.js"></script>
 <script src="barChart.js"></script>
 <script type="text/javascript" src="radar.js"></script>
+<script type="text/javascript">
+  function showRadar(data2){
+      var data = [];
+      var chart = RadarChart.chart();
+      var w = 600,
+        h = 600,
+        headers = []
+      data2.forEach(function(item, i){
+          if (data2[i]["Country"] == "You" || data2[i]["Country"] == country) {
+
+        newSeries = {};
+        for(var j in item) {
+          let v = item[j];
+          if(j=="Country"){
+            newSeries.className = v;
+            newSeries.axes = [];
+          }else{
+            newSeries.axes.push({"axis":[j], "value": [v]});//parseFloat(v)});
+          }
+        }
+        data.push(newSeries);
+
+          }
+      });
+
+      RadarChart.defaultConfig.radius = 4;
+      RadarChart.defaultConfig.w = w;
+      RadarChart.defaultConfig.h = h;
+      RadarChart.draw("#chart-container", data);
+      function animate(elem,time) {
+          if( !elem) return;
+          var to = elem.offsetTop;
+          var from = window.scrollY;
+          var start = new Date().getTime(),
+              timer = setInterval(function() {
+                  var step = Math.min(1,(new Date().getTime()-start)/time);
+                  window.scrollTo(0,(from+step*(to-from))+1);
+                  if( step == 1){ clearInterval(timer);};
+              },25);
+              window.scrollTo(0,(from+1));
+      }
+      var divVal = document.getElementById('chart-container');
+      animate(divVal,600);
+  }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
