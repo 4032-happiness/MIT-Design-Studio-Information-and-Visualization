@@ -21,7 +21,7 @@ var x = d3v4.scaleBand().range([0, width]),
 
 var g = svgBar.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+
 var tooltip = d3v4.select("body").append("div").attr("class", "tooltipBar");
 
 var phrase = "Generosity";
@@ -36,22 +36,22 @@ var barData = null;
 
 /////////////////////////////////////////////////////////
 
-    d3v4.csv("data.csv", function(d) {   
+    d3v4.csv("data.csv", function(d) {
       d.country = d['Country'];
       d.frequency = +d[phrase];
       return d;
     }, function(error, data) {
          if (error) throw error;
-         
+
           barData = data;
           var you = {"Country": "You", "Happiness": "10", "Life Expectancy/10": life_expectancy, "Social Support": social_support, "Generosity": generosity, "Positive Affect": enjoyment, "Negative Affect": worry, country: "You", frequency: generosity};
           data.unshift(you);
         drawBar(data);
-    }  
+    }
     );
-    
+
      function drawBar (data) {
-     
+
 
         data.sort(function(a,b){
             return a[phrase] - b[phrase];
@@ -59,15 +59,15 @@ var barData = null;
       x.domain(data.map(function(d) { return d.country; }));
       y.domain([0, 10]);
     console.log(data)
-       
-    g.selectAll('.axis').remove()
+
+    g.selectAll('.bar-axis').remove()
     g.selectAll('.bar').remove()
 
       g.append("g")
-          .attr("class", "axis axis--x")
+          .attr("class", "bar-axis axis--x")
           .attr("transform", "translate(0," + height + ")")
           .call(d3v4.axisBottom(x))
-          .selectAll("text")  
+          .selectAll("text")
           .style("text-anchor", "end")
           .style("font-size", "7px")
           .attr("dx", "-1em")
@@ -76,7 +76,7 @@ var barData = null;
 
 
       g.append("g")
-          .attr("class", "axis axis--y")
+          .attr("class", "bar-axis axis--y")
           .call(d3v4.axisLeft(y).ticks(10))
           .append("text")
           .attr("transform", "rotate(-90)")
@@ -104,8 +104,8 @@ var barData = null;
           console.log((.9 * window.innerHeight) - y(d[phrase]));
           console.log(y(d[phrase]))
             })
-         
-          .on("mouseout", function(d){ 
+
+          .on("mouseout", function(d){
                 d3v4.select(this).style("fill", function(d,i)
                 {return colorPicker(d.Country);})
                 tooltip.style("display", "none");})
@@ -121,10 +121,10 @@ var barData = null;
       function highlightPicker(v){
           if(v == "You") { return "#ff8900"}
           if (v == country) { return "#ff8900"}
-          else{ return "#00ff6c";} 
+          else{ return "#00ff6c";}
       }
 
-    //    data.forEach(function(item, i){  
+    //    data.forEach(function(item, i){
     //      if (data[i]["Country"] == "China") {
     //        g.append("g")
     //          .data(data)
@@ -139,4 +139,3 @@ var barData = null;
     //  });
 
     }
-

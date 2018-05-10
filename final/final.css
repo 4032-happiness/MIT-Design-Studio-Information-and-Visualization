@@ -48,18 +48,30 @@ p {
   background-color: #0069d9;
   border-color: #0062cc;
 }
-<<<<<<< HEAD
-#scatter-container{
-    page-break-before: always;
+/* ... Form Styles */
+
+
+/* Radar Chart and Bar Chart Styles */
+#radar-container, #bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
-#bar-container{
-    margin-top:50px;
-    text-align: center;
-    display:grid;
-    grid-template-columns: 100%;
-    grid-template-rows:20% 20% 60%;
+#radar-title, #bar-title {
+  font-size: 26px;
+  margin-bottom: 10px;
 }
-=======
-/* ... Form Styles */
->>>>>>> 4bc2ff11ff710251fc9143a54dd30fd284505b4d
+
+.radar-chart .area {
+  fill-opacity: 0.7;
+}
+.radar-chart.focus .area {
+  fill-opacity: 0.3;
+}
+.radar-chart.focus .area.focused {
+  fill-opacity: 0.9;
+}
+/* ... Radar Chart and Bar Chart Styles */

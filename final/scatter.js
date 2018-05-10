@@ -74,7 +74,7 @@ d3.csv("WHR2.csv", function(error, data) {
 
   // x-axis
   svg.append("g")
-      .attr("class", "x axis")
+      .attr("class", "x scatter-axis")
       .attr("transform", "translate(0," + (height/2) + ")")
       .call(xAxis.outerTickSize(0))
     .append("text")
@@ -86,7 +86,7 @@ d3.csv("WHR2.csv", function(error, data) {
 
   // y-axis
   svg.append("g")
-      .attr("class", "y axis")
+      .attr("class", "y scatter-axis")
       .call(yAxis.outerTickSize(0))
     .append("text")
       .attr("class", "label")
@@ -222,7 +222,7 @@ function updateData(){
     });
 
      svg.selectAll(".dot").remove();
-     d3.selectAll('.axis').remove();
+     d3.selectAll('.scatter-axis').remove();
     //rescale domain and range
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
@@ -268,7 +268,7 @@ function updateData(){
     })
 
   svg.append("g")
-      .attr("class", "x axis")
+      .attr("class", "x scatter-axis")
       .attr("transform", "translate(0," + (height/2) + ")")
       .call(xAxis)
     .append("text")
@@ -280,7 +280,7 @@ function updateData(){
 
   // y-axis
   svg.append("g")
-      .attr("class", "y axis")
+      .attr("class", "y scatter-axis")
       .call(yAxis)
     .append("text")
       .attr("class", "label")

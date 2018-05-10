@@ -20,12 +20,16 @@
   pointer-events: none;
 }
 #scatter-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
     font-family: 'Open Sans', sans-serif;
-    margin-top:50px;
+    /* margin-top:50px;
     text-align: center;
     display:grid;
     grid-template-columns: 100%;
-    grid-template-rows:20% 20% 60%;
+    grid-template-rows:20% 20% 60%; */
     --highlight-color: blue;
   --yours-color: red;
   --ultra-light-gray: #efefef;
@@ -67,14 +71,14 @@ form{
 
 
 
-#scatter-container p{
+/* #scatter-container p{
   width:100%;
   text-align:center;
   color:white;
   font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', Roboto, Arial, Sans-serif;
   font-size:32px;
   margin-top:30px;
-}
+} */
 
 /*.scatter-button{
     background: white ;
