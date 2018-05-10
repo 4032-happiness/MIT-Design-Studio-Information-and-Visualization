@@ -5,7 +5,8 @@ var social_support = localStorage.getItem("social_support");
 var worry = localStorage.getItem("negative_affect");
 var generosity = localStorage.getItem("generosity");
 var life_expectancy = localStorage.getItem("life_expectancy");
-
+var selected1 = document.getElementById("bar-happiness");
+selected1.classList.add("selected");
 var barSVG = document.getElementById("barSVG");
 barSVG.setAttribute("width",  .8 * window.innerWidth);
 barSVG.setAttribute("height", .9 * window.innerHeight);
@@ -27,26 +28,41 @@ var tooltip = d3v4.select("body").append("div").attr("class", "tooltipBar");
 var phrase = "Happiness";
 
 document.getElementById("bar-happiness").addEventListener("click",function(e){
+    selected1.classList.remove("selected");
+    selected1 = document.getElementById("bar-happiness");
+    selected1.classList.add("selected");
     console.log('called')
     phrase = "Happiness";
     drawBar(barData);
 });
 document.getElementById("bar-social-support").addEventListener("click",function(e){
+    selected1.classList.remove("selected");
+    selected1 = document.getElementById("bar-social-support");
+    selected1.classList.add("selected");
     console.log('called')
     phrase = "Social Support";
     drawBar(barData);
 });
 document.getElementById("bar-generosity").addEventListener("click",function(e){
+    selected1.classList.remove("selected");
+    selected1 = document.getElementById("bar-generosity");
+    selected1.classList.add("selected");
     console.log('called')
     phrase = "Generosity";
     drawBar(barData);
 });
 document.getElementById("bar-positive-affect").addEventListener("click",function(e){
+    selected1.classList.remove("selected");
+    selected1 = document.getElementById("bar-positive-affect");
+    selected1.classList.add("selected");
     console.log('called')
     phrase = "Positive Affect";
     drawBar(barData);
 });
 document.getElementById("bar-negative-affect").addEventListener("click",function(e){
+    selected1.classList.remove("selected");
+    selected1 = document.getElementById("bar-negative-affect");
+    selected1.classList.add("selected");
     console.log('called')
     phrase = "Negative Affect";
     drawBar(barData);

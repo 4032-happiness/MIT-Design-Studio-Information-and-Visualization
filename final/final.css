@@ -1,6 +1,20 @@
 
 body {
   padding: 40px 0;
+     --highlight-color: blue;
+  --yours-color: red;
+  --ultra-light-gray: #efefef;
+  --light-gray: #888;
+  --medium-gray: #666;
+  --dark-gray: #333;
+
+  --plot-height: 75vh;
+  --plot-width: 60vw;
+  --table-title-height: 30px;
+  --table-title-size: 17px;
+  --table-margin: 18px;
+  --table-pad-top: 5px;
+  --table-pad-right: 16px
 }
 
 p {

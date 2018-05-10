@@ -3,8 +3,8 @@ var scatterWidth;
 var scatterHeight;
 var selected;
 var radius = 4;
-var dotcolor = "#225378";
-var inputcolor ="#EB7F00";
+var dotcolor = "blue";//"#225378";
+var inputcolor ="red";//"#EB7F00";
 selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
