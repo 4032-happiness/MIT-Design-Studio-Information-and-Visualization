@@ -154,15 +154,15 @@ var barData = null;
           // if(v == "You") { return "#FF0000"}
           // if (v == country) { return "#ffeb00"}
           // else{ return "#4682b4";}
-          if (v == "You") { return 'red'}//'#bf0a0a }
-          if (v == country) { return 'blue'}//'#29388d' }
+          if (v == "You") { return '#FF9310'}//'#bf0a0a }
+          if (v == country) { return '#58D8FF'}//'#29388d' }
           else{ return "#AAA";}
       }
       function highlightPicker(v){
           // if(v == "You") { return "#ff8900"}
           // if (v == country) { return "#ff8900"}
-          if(v == "You") { return '#bf0a0a'} //'#760606' }
-          if (v == country) { return '#29388d'}//'#19235a' }
+          if(v == "You") { return '#C4710C'} //'#760606' }
+          if (v == country) { return '#3E99B5'}//'#19235a' }
           else{ return "#666";}
       }
 
