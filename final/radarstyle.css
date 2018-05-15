@@ -10,7 +10,7 @@
   stroke-width: 1;
 }
 .radar-chart .axis .legend {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Happy Monkey', cursive;
   font-size: 15px;
   fill: #666;
 }
@@ -28,7 +28,7 @@
 }
 
 .radar-chart .tooltip {
-  font-family: sans-serif;
+  font-family: 'Happy Monkey', cursive;
   font-size: 13px;
   transition: opacity 200ms;
   opacity: 0;

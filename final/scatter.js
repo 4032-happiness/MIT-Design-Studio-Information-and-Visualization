@@ -3,8 +3,10 @@ var scatterWidth;
 var scatterHeight;
 var selected;
 var radius = 4;
-var dotcolor = "blue";//"#225378";
-var inputcolor ="red";//"#EB7F00";
+var dotcolor = "#AAA";//"#225378";
+var dotHoverColor = "#666";
+var inputcolor ="#FF9310";//"#EB7F00";
+var inputHoverColor = "#C45635";
 selected = document.getElementById("gdp-button");
 selected.classList.add("selected1");
 
@@ -102,7 +104,7 @@ d3.csv("WHR2.csv", function(error, data) {
       .attr("cy", yMap)
       .style("fill", function(d) { return color;})//
       .on("mouseover", function(d) {
-          d3.select(this).style('opacity', '0.5')
+          d3.select(this).style('fill', dotHoverColor)
           scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
@@ -112,7 +114,7 @@ d3.csv("WHR2.csv", function(error, data) {
                .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
-          d3.select(this).style('opacity', '1')
+          d3.select(this).style('fill', dotcolor)
           scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
@@ -126,7 +128,7 @@ d3.csv("WHR2.csv", function(error, data) {
     .attr("cy",yScale(inputComaparison))
     .style("fill", inputcolor)
     .on("mouseover", function(d) {
-          d3.select(this).style('opacity', '0.5')
+          d3.select(this).style('fill', inputHoverColor)
           scatterTooltip.transition()
                .duration(200)
                .style("opacity", .9);
@@ -135,7 +137,7 @@ d3.csv("WHR2.csv", function(error, data) {
             .style("top", (event.pageY + 50) + "px");
       })
       .on("mouseout", function(d) {
-          d3.select(this).style('opacity', '1')
+          d3.select(this).style('fill', inputcolor)
           scatterTooltip.transition()
                .duration(500)
                .style("opacity", 0);
@@ -301,7 +303,7 @@ function updateData(){
         .attr("cy", yMap)
         .style("fill", function(d) { return color;})// color(cValue(d));})
         .on("mouseover", function(d) {
-        d3.select(this).style('opacity', '0.5')
+        d3.select(this).style('fill', dotHoverColor)
         scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
@@ -313,7 +315,7 @@ function updateData(){
             .style("top", (event.pageY + 50) + "px");
     })
         .on("mouseout", function(d) {
-        d3.select(this).style('opacity', '1')
+        d3.select(this).style('fill', dotcolor)
         scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);
@@ -327,7 +329,7 @@ function updateData(){
         .attr("cy",yScale(inputComaparison))
         .style("fill", inputcolor)
         .on("mouseover", function(d) {
-        d3.select(this).style('opacity', '0.5')
+        d3.select(this).style('fill', inputHoverColor)
         scatterTooltip.transition()
             .duration(200)
             .style("opacity", .9);
@@ -336,7 +338,7 @@ function updateData(){
           .style("top", (event.pageY + 50) + "px");
     })
         .on("mouseout", function(d) {
-        d3.select(this).style('opacity', '1')
+        d3.select(this).style('fill', inputcolor)
         scatterTooltip.transition()
             .duration(500)
             .style("opacity", 0);

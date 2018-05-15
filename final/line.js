@@ -18,7 +18,7 @@ let lineData = {}
 let lineDataAverage = []
 
 let countryColor = '#AAA'
-let yourCountryColor = 'red'
+let yourCountryColor = '#ED8220'
 let yourCountry = localStorage.getItem("country")
 
 function parseLineData(d){

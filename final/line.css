@@ -1,6 +1,6 @@
 #line-container {
-  --highlight-color: blue;
-  --yours-color: red;
+  --highlight-color: #58d8ff;
+  --yours-color: #ED8220;
   --ultra-light-gray: #efefef;
   --light-gray: #888;
   --medium-gray: #666;
@@ -27,11 +27,13 @@
 #line-title {
   font-size: 26px;
   margin-bottom: 10px;
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-switches {
   margin-bottom: 10px;
   display: flex;
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-switches .switch {
@@ -74,10 +76,12 @@
 
 #line-plot g.tick text {
   fill: var(--medium-gray);
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-plot .axis-title {
   fill: var(--light-gray);
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-table-title {
@@ -85,6 +89,7 @@
   font-size: var(--table-title-size);
   text-align: center;
   color: var(--dark-gray);
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-table {
@@ -93,6 +98,7 @@
   padding-top: var(--table-pad-top);
   border-top: 1px solid #DDD;
   overflow-y: scroll;
+  font-family: 'Happy Monkey', cursive;
 }
 
 #line-table table {

@@ -28,6 +28,9 @@ p {
   align-items: center;
   font-family: 'Open Sans', sans-serif;
 }
+#header h1 {
+  font-family: 'Happy Monkey', cursive;
+}
 
 /* Form Styles */
 #form-body, #form-header {
@@ -37,6 +40,9 @@ p {
 }
 #form-header h1 {
   justify-content: center;
+}
+#form-header h1, #form-body h2, #submit {
+  font-family: 'Happy Monkey', cursive;
 }
 
 .form-section {
@@ -49,6 +55,7 @@ p {
 }
 .form-section table td {
   padding: 0 20px;
+  font-family: 'Happy Monkey', cursive;
 }
 
 #submit {
@@ -84,6 +91,7 @@ p {
 #radar-title, #bar-title {
   font-size: 26px;
   margin-bottom: 10px;
+  font-family: 'Happy Monkey', cursive;
 }
 
 .radar-chart .area {

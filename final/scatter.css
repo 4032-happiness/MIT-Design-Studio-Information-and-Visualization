@@ -18,6 +18,7 @@
   width: 200px;
   pointer-events: none;
   background-color: #fff;
+  font-family: 'Happy Monkey', cursive;
 }
 #scatter-container{
   display: flex;
@@ -44,6 +45,7 @@
 #scatter-title{
     margin-bottom:20px;
     font-size: 26px;
+    font-family: 'Happy Monkey', cursive;
 
 }
 #input-form{
@@ -75,6 +77,7 @@ form{
   margin: 0 10px;
   color: var(--light-gray);
   cursor: pointer;
+  font-family: 'Happy Monkey', cursive;
 }
 
 .switch:hover {
@@ -111,4 +114,5 @@ form{
 
 #scatter-plot .scatter-axis text {
   fill: var(--light-gray);
+  font-family: 'Happy Monkey', cursive;
 }
